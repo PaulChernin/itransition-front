@@ -1,15 +1,13 @@
-import { useTranslation } from "react-i18next"
-import LanguageSwitcher from "./components/LanguageSwitcher/LanguageSwitcher"
+import { RouterProvider } from "react-router-dom"
+import router from "./router/router"
 
 function App() {
-  const { t } = useTranslation()
 
-  return (
-    <>
-      <LanguageSwitcher/>
-      <div>{t('title')}</div>
-    </>
-  )
+    return (
+        <>
+            <RouterProvider router={router} />
+        </>
+    )
 }
 
 export default App
