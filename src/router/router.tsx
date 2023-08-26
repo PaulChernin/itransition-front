@@ -5,6 +5,7 @@ import AdminPanelPage from "../pages/AdminPanel/AdminPanel"
 import ReviewPage from "../pages/Review/ReviewPage"
 import ReviewCreatePage from "../pages/ReviewCreate/ReviewCreatePage"
 import ReviewEditPage from "../pages/ReviewEdit/ReviewEditPage"
+import VkAuthHandlePage from "../auth/HandleVkAuthPage"
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
         path: '/review-edit/:id',
         element: <ReviewEditPage/>
+    },
+    {
+        path: '/vk-auth',
+        element: <VkAuthHandlePage/>
     }
 ])
 
