@@ -1,7 +1,7 @@
 import { Button, useColorMode } from "@chakra-ui/react"
 
 const ThemeModeSwitcher = () => {
-    const { colorMode, toggleColorMode } = useColorMode()
+    const { toggleColorMode } = useColorMode()
 
     return (
         <Button onClick={toggleColorMode}>
