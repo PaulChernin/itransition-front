@@ -1,5 +1,4 @@
 import { FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react"
-import CategorySelect from "./CategorySelect"
 import { Review } from "./types/review"
 
 type ReviewEditorProps = {
@@ -14,17 +13,6 @@ const ReviewEditor = ({ review, setReview }: ReviewEditorProps) => {
             <Input
                 value={review.title}
                 onChange={e => setReview({...review, title: e.target.value})}
-            />
-        </FormControl>
-        <FormControl>
-            <FormLabel>Category</FormLabel>
-            <CategorySelect/>
-        </FormControl>
-        <FormControl>
-            <FormLabel>Product</FormLabel>
-            <Input
-                value={review.product}
-                onChange={e => setReview({...review, product: e.target.value})}
             />
         </FormControl>
         <FormControl>
