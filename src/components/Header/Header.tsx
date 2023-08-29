@@ -1,6 +1,6 @@
-import { Flex, useColorModeValue } from "@chakra-ui/react"
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
-import ThemeModeSwitcher from "../ThemeModeSwitcher/ThemeModeSwitcher"
+import { Button, Flex, useColorModeValue } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
+import Menu from "./Menu"
 
 const Header = () => {
     return <>
@@ -11,8 +11,8 @@ const Header = () => {
             borderStyle='solid'
             borderColor={useColorModeValue('gray.800', 'gray.200')}
         >
-            <LanguageSwitcher/>
-            <ThemeModeSwitcher/>
+            <Link to='/feed/best'><Button>All Reviews</Button></Link>
+            <Menu/>
         </Flex>
     </>
 }
