@@ -2,20 +2,21 @@ import { Button, Drawer, DrawerContent, DrawerOverlay, useDisclosure } from "@ch
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
 import ThemeModeSwitcher from "../ThemeModeSwitcher/ThemeModeSwitcher"
 
-
 const Menu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return <>
         <Button onClick={onOpen}>Menu</Button>
-
         <Drawer
             isOpen={isOpen}
             onClose={onClose}
             placement="right"
         >
             <DrawerOverlay/>
-            <DrawerContent>
+            <DrawerContent
+                p={5}
+                gap={4}
+            >
                 <LanguageSwitcher/>
                 <ThemeModeSwitcher/>
             </DrawerContent>

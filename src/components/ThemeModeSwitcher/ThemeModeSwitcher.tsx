@@ -1,12 +1,20 @@
-import { Button, useColorMode } from "@chakra-ui/react"
+import { Flex, Switch, useColorMode } from "@chakra-ui/react"
 
 const ThemeModeSwitcher = () => {
-    const { toggleColorMode } = useColorMode()
+    const { colorMode, toggleColorMode } = useColorMode()
 
     return (
-        <Button onClick={toggleColorMode}>
-            Toggle Dark Mode
-        </Button>
+        <Flex
+            alignItems='center'
+            justifyContent='space-between'
+            direction='row'
+        >
+            <div>Dark mode:</div>
+            <Switch
+                isChecked={colorMode === 'dark'}
+                onChange={toggleColorMode}
+            />
+        </Flex>
     )
 }
 
