@@ -20,6 +20,7 @@ const Tabs = () => {
         <ChakraTabs
             index={tabs.findIndex(tab => tab.route === pathname)}
             onChange={index => navigate(tabs[index].route)}
+            marginBottom={3}
         >
             <TabList>
                 {tabs.map(tab =>

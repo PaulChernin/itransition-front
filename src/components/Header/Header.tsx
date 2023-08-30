@@ -12,7 +12,7 @@ const Header = () => {
             alignItems='center'
             borderBottom={2}
             borderStyle='solid'
-            borderColor={useColorModeValue('gray.300', 'gray.700')}
+            borderColor={useColorModeValue('gray.200', 'gray.800')}
         >
             <Link to='/feed/best'>
                 <Box fontSize='lg' fontWeight='bold'>All Reviews</Box>

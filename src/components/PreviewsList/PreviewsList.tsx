@@ -1,3 +1,4 @@
+import { VStack } from "@chakra-ui/react"
 import PreviewCard from "./PreviewCard"
 import { Preview } from "./types/Preview"
 
@@ -7,14 +8,14 @@ type PreviewsListProps = {
 
 const PreviewsList = ({ previews }: PreviewsListProps) => {
     return <>
-        <div>
+        <VStack gap={3}>
             {previews.map(preview =>
                 <PreviewCard
                     preview={preview}
                     key={preview.id}
                 />
             )}
-        </div>
+        </VStack>
     </>
 }
 

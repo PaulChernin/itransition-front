@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next"
-import languages from "../../i18n/languages"
 import { Select } from "chakra-react-select"
 import { Flex } from "@chakra-ui/react"
+import languages from "../../i18n/languages"
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation()
