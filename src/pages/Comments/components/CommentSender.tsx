@@ -1,4 +1,4 @@
-import { Button, Textarea } from "@chakra-ui/react"
+import { Box, Button, Textarea } from "@chakra-ui/react"
 import { useState } from "react"
 
 type CommentSenderProps = {
@@ -9,15 +9,18 @@ const CommentSender = ({ send }: CommentSenderProps) => {
     const [text, setText] = useState('')
     
     return <>
-        <Textarea
-            value={text}
-            onChange={e => setText(e.target.value)}
-        />
-        <Button
-            onClick={() => send(text)}
-        >
-            Send
-        </Button>
+        <Box marginTop={3}>
+            <Textarea
+                value={text}
+                onChange={e => setText(e.target.value)}
+                marginBottom={3}
+            />
+            <Button
+                onClick={() => send(text)}
+            >
+                Send
+            </Button>
+        </Box>
     </>
 }
 

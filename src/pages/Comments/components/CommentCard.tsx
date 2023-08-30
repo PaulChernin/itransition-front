@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react"
 import { Comment } from "./types/Comment"
 
 type CommentCardProps = {
@@ -6,8 +7,15 @@ type CommentCardProps = {
 
 const CommentCard = ({ comment }: CommentCardProps) => {
     return <>
-        <div>{comment.user.nick}</div>
-        <div>{comment.text}</div>
+        <Box>
+            <Box
+                fontSize='1.1em'
+                fontWeight='bold'
+            >
+                {comment.user.nick}
+            </Box>
+            <Box>{comment.text}</Box>
+        </Box>
     </>
 }
 
