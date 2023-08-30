@@ -8,11 +8,11 @@ const Header = () => {
             as='header'
             mb={4}
             py={3}
-            borderBottom={1}
             justifyContent='space-between'
             alignItems='center'
+            borderBottom={2}
             borderStyle='solid'
-            borderColor={useColorModeValue('gray.800', 'gray.200')}
+            borderColor={useColorModeValue('gray.300', 'gray.700')}
         >
             <Link to='/feed/best'>
                 <Box fontSize='lg' fontWeight='bold'>All Reviews</Box>
