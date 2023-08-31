@@ -8,7 +8,7 @@ type ProductCardProps = {
 
 const ProductCard = ({ product }: ProductCardProps) => {
     const {t} = useTranslation()
-    const categoryName = t('categories.' + product.category)
+    const categoryName = t('categories.' + product.categoryName)
 
     return <>
         <Box
