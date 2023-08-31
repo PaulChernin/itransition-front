@@ -3,5 +3,6 @@ import { Product } from "../../ProductCard/types/Product"
 export type Preview = {
     id: number,
     title: string,
-    product: Product
+    product: Product,
+    tags: Array<string>
 }

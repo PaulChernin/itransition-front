@@ -10,6 +10,6 @@ export type Review = {
     },
     product: Product,
     authorsScore: number,
-    tags: Array<number>,
+    tags: Array<string>,
     likesCount: number
 }
