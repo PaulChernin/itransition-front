@@ -3,6 +3,7 @@ import ProductCard from "../../../components/ProductCard/ProductCard"
 import { Review } from "./types/Review"
 import { useNavigate } from "react-router-dom"
 import TagsList from "../../../components/TagsList/TagsList"
+import Likes from "./Likes"
 
 type ReviewArticleProps = {
     review: Review
@@ -28,7 +29,7 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             </Box>
             <TagsList tags={review.tags} />
             <Flex alignItems='center' gap={5}>
-                <div>{review.likesCount} likes</div>
+                <Likes reviewId={review.id} userId={3} />
                 <Button onClick={() => navigate('/comments/' + review.id)}>
                     Comments
                 </Button>
