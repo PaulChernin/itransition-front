@@ -1,34 +1,22 @@
+import { useEffect, useState } from 'react'
 import { TagCloud } from 'react-tagcloud'
-
-const data = [
-    { value: 'jQuery', count: 25 },
-    { value: 'MongoDB', count: 18 },
-    { value: 'JavaScript', count: 38 },
-    { value: 'React', count: 30 },
-    { value: 'Nodejs', count: 28 },
-    { value: 'Express.js', count: 25 },
-    { value: 'HTML5', count: 33 },
-    { value: 'CSS3', count: 20 },
-    { value: 'Webpack', count: 22 },
-    { value: 'Babel.js', count: 7 },
-    { value: 'ECMAScript', count: 25 },
-    { value: 'Jest', count: 15 },
-    { value: 'Mocha', count: 17 },
-    { value: 'React Native', count: 27 },
-    { value: 'Angular.js', count: 30 },
-    { value: 'TypeScript', count: 15 },
-    { value: 'Flow', count: 30 },
-    { value: 'NPM', count: 11 },
-]
+import { getPopularTags } from '../api/api'
 
 const TagsCloud = () => {
-    
+    const [tags, setTags] = useState<Array<string>>([])
+
+    useEffect(() => {
+        getPopularTags()
+            .then(response => {
+                setTags(response)
+            })
+    }, [])
     
     return <>
         <TagCloud
-            minSize={12}
+            minSize={2}
             maxSize={35}
-            tags={data}
+            tags={tags}
             className="simple-cloud"
             onClick={(e: any) => console.log(e)}
         />
