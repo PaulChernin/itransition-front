@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react"
 import { Review } from "./types/review"
+import { useTranslation } from "react-i18next"
 
 type ReviewEditorProps = {
     review: Review,
@@ -7,23 +8,25 @@ type ReviewEditorProps = {
 }
 
 const ReviewEditor = ({ review, setReview }: ReviewEditorProps) => {
+    const { t } = useTranslation()
+    
     return <>
         <FormControl>
-            <FormLabel>Title</FormLabel>
+            <FormLabel>{t('title')}</FormLabel>
             <Input
                 value={review.title}
                 onChange={e => setReview({...review, title: e.target.value})}
             />
         </FormControl>
         <FormControl>
-            <FormLabel>Text</FormLabel>
+            <FormLabel>{t('text')}</FormLabel>
             <Textarea
                 value={review.text}
                 onChange={e => setReview({...review, text: e.target.value})}
             />
         </FormControl>
         <FormControl>
-            <FormLabel>Score</FormLabel>
+            <FormLabel>{t('score')}</FormLabel>
             <Input
                 type='number'
                 value={review.authorScore}

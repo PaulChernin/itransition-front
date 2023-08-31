@@ -4,7 +4,7 @@ import { Flex } from "@chakra-ui/react"
 import languages from "../../i18n/languages"
 
 const LanguageSwitcher = () => {
-    const { i18n } = useTranslation()
+    const { t, i18n } = useTranslation()
     const options = Object.keys(languages).map(code => {
         return {
             label: code,
@@ -18,7 +18,7 @@ const LanguageSwitcher = () => {
             justifyContent='space-between'
             direction='row'
         >
-            <div>Language:</div>
+            <div>{t('language')}:</div>
             <Select
                 options={options}
                 value={options.find(option => option.value === i18n.resolvedLanguage)}

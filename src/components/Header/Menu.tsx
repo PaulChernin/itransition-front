@@ -21,7 +21,6 @@ const Menu = () => {
                 <ThemeModeSwitcher/>
             </DrawerContent>
         </Drawer>
-
     </>
 }
 

@@ -3,6 +3,7 @@ import ProductCard from "../ProductCard/ProductCard"
 import { Preview } from "./types/Preview"
 import { useNavigate } from "react-router-dom"
 import TagsList from "../TagsList/TagsList"
+import { useTranslation } from "react-i18next"
 
 type PreviewCardProps = {
     preview: Preview
@@ -10,6 +11,7 @@ type PreviewCardProps = {
 
 const PreviewCard = ({ preview }: PreviewCardProps) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     return <>
         <Box
@@ -35,7 +37,7 @@ const PreviewCard = ({ preview }: PreviewCardProps) => {
                 <Button
                     onClick={() => navigate('/review/' + preview.id)}
                 >
-                    Read
+                    {t('read')}
                 </Button>
             </VStack>
         </Box>

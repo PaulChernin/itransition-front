@@ -1,17 +1,18 @@
 import { Tabs as ChakraTabs, Tab, TabList } from "@chakra-ui/react"
+import { useTranslation } from "react-i18next"
 import { useLocation, useNavigate } from "react-router-dom"
 
 const tabs = [
     {
-        label: 'Best',
+        label: 'best',
         route: '/feed/best'
     },
     {
-        label: 'New',
+        label: 'new',
         route: '/feed/latest'
     },
     {
-        label: 'Tags',
+        label: 'tags',
         route: '/feed/tags'
     }
 ]
@@ -19,6 +20,7 @@ const tabs = [
 const Tabs = () => {
     const { pathname } = useLocation()
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     return <>
         <ChakraTabs
@@ -29,7 +31,7 @@ const Tabs = () => {
             <TabList>
                 {tabs.map(tab =>
                     <Tab key={tab.route}>
-                        {tab.label}
+                        {t(tab.label)}
                     </Tab>    
                 )}
             </TabList>

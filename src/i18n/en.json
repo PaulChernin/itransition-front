@@ -1,8 +1,25 @@
 {
-    "title": "App",
+    "all-reviews": "All reviews",
+    "language": "Language",
+    "dark-mode": "Dark mode",
+    "page-not-found": "Page not found",
     "categories": {
         "book": "Book",
         "game": "Game",
         "movie": "Movie"
-    }
+    },
+    "read": "Read",
+    "title": "Title",
+    "text": "Text",
+    "score": "Score",
+    "send": "Send",
+    "best": "Best",
+    "new": "New",
+    "tags": "Tags",
+    "open": "Open",
+    "edit": "Edit",
+    "delete": "Delete",
+    "comments": "Comments",
+    "publish": "Publish",
+    "name": "Name"
 }

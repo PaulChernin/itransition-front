@@ -4,6 +4,7 @@ import { Review } from "./types/Review"
 import { useNavigate } from "react-router-dom"
 import TagsList from "../../../components/TagsList/TagsList"
 import Likes from "./Likes"
+import { useTranslation } from "react-i18next"
 
 type ReviewArticleProps = {
     review: Review
@@ -11,6 +12,7 @@ type ReviewArticleProps = {
 
 const ReviewArticle = ({ review }: ReviewArticleProps) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     return <>
         <VStack spacing={4} align='left'>
@@ -31,7 +33,7 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             <Flex alignItems='center' gap={5}>
                 <Likes reviewId={review.id} userId={3} />
                 <Button onClick={() => navigate('/comments/' + review.id)}>
-                    Comments
+                    {t('comments')}
                 </Button>
             </Flex>
         </VStack>

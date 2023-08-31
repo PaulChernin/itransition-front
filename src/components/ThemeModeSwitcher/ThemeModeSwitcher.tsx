@@ -1,7 +1,9 @@
 import { Flex, Switch, useColorMode } from "@chakra-ui/react"
+import { useTranslation } from "react-i18next"
 
 const ThemeModeSwitcher = () => {
     const { colorMode, toggleColorMode } = useColorMode()
+    const { t } = useTranslation()
 
     return (
         <Flex
@@ -9,7 +11,7 @@ const ThemeModeSwitcher = () => {
             justifyContent='space-between'
             direction='row'
         >
-            <div>Dark mode:</div>
+            <div>{t('dark-mode')}:</div>
             <Switch
                 isChecked={colorMode === 'dark'}
                 onChange={toggleColorMode}

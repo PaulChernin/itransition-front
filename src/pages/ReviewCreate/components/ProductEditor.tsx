@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react"
 import CategorySelect from "../../../components/CategorySelect/CategorySelect"
+import { useTranslation } from "react-i18next"
 
 export type Product = {
     name: string,
@@ -12,16 +13,18 @@ type ReviewEditorProps = {
 }
 
 const ProductEditor = ({ product, setProduct }: ReviewEditorProps) => {
+    const { t } = useTranslation()
+    
     return <>
         <FormControl>
-            <FormLabel>Category</FormLabel>
+            <FormLabel>{t('publish')}</FormLabel>
             <CategorySelect
                 category={product.category}
                 setCategory={value => setProduct({...product, category: value})}
             />
         </FormControl>
         <FormControl>
-            <FormLabel>Product Name</FormLabel>
+            <FormLabel>{t('name')}</FormLabel>
             <Input
                 value={product.name}
                 onChange={e => setProduct({...product, name: e.target.value})}

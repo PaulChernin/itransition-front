@@ -1,5 +1,6 @@
 import { Box, Button, Textarea } from "@chakra-ui/react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 type CommentSenderProps = {
     send: (text: string) => void
@@ -7,7 +8,8 @@ type CommentSenderProps = {
 
 const CommentSender = ({ send }: CommentSenderProps) => {
     const [text, setText] = useState('')
-    
+    const { t } = useTranslation()
+
     return <>
         <Box marginTop={3}>
             <Textarea
@@ -18,7 +20,7 @@ const CommentSender = ({ send }: CommentSenderProps) => {
             <Button
                 onClick={() => send(text)}
             >
-                Send
+                {t('send')}
             </Button>
         </Box>
     </>
