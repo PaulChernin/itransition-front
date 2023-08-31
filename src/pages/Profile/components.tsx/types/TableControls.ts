@@ -1,4 +1,4 @@
 export type TableControls = {
-    category: number,
+    category: string,
     sortBy: 'date' | 'name'
 }

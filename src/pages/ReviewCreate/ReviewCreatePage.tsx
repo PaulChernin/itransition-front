@@ -13,7 +13,7 @@ const defaultReview = {
 
 const defaultProduct = {
     name: '',
-    category: 1
+    category: 'book'
 }
 
 const ReviewCreatePage = () => {

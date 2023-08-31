@@ -3,7 +3,7 @@ import CategorySelect from "./CategorySelect"
 
 export type Product = {
     name: string,
-    category: number
+    category: string
 }
 
 type ReviewEditorProps = {

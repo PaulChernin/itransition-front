@@ -1,4 +1,8 @@
 {
     "title": "App",
-    "categories": ["Book", "Movie", "Game"]
+    "categories": {
+        "book": "Book",
+        "game": "Game",
+        "movie": "Movie"
+    }
 }

@@ -10,7 +10,7 @@ type ReviewsProps = {
 }
 
 const defaultControls: TableControls = {
-    category: 1,
+    category: 'book',
     sortBy: 'date'
 }
 
