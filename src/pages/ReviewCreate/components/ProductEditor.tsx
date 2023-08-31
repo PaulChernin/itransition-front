@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react"
-import CategorySelect from "./CategorySelect"
+import CategorySelect from "../../../components/CategorySelect/CategorySelect"
 
 export type Product = {
     name: string,
@@ -16,7 +16,8 @@ const ProductEditor = ({ product, setProduct }: ReviewEditorProps) => {
         <FormControl>
             <FormLabel>Category</FormLabel>
             <CategorySelect
-
+                category={product.category}
+                setCategory={value => setProduct({...product, category: value})}
             />
         </FormControl>
         <FormControl>

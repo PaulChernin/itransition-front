@@ -2,17 +2,27 @@ import { Select } from "chakra-react-select"
 import { useTranslation } from "react-i18next"
 
 type CategorySelectProps = {
-    category: number,
-    setCategory: (value: number) => void
+    category: string,
+    setCategory: (value: string) => void
 }
 
+const categories = ['book', 'game', 'movie']
+
 const CategorySelect = ({ category, setCategory }: CategorySelectProps) => {
-    const { i18n } = useTranslation()
-    const options = Object.keys()
+    const { t } = useTranslation()
+
+    const options = categories.map(category => {
+        return {
+            label: t('categories.' + category),
+            value: category
+        }
+    })
     
     return <>
         <Select
-            options={}
+            options={options}
+            value={options.find(option => option.value === category)}
+            onChange={option => option && setCategory(option.value)}
         />
     </>
 }
