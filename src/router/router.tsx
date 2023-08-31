@@ -11,6 +11,7 @@ import FeedLatestPage from "../pages/FeedLatest/FeedLatestPage"
 import CommentsPage from "../pages/Comments/CommentsPage"
 import Layout from "../layout/Layout"
 import FeedTagsPage from "../pages/FeedTags/FeedTagsPage"
+import NotFoundPage from "../pages/404/NotFoundPage"
 
 const router = createBrowserRouter([
     {
@@ -69,7 +70,10 @@ const router = createBrowserRouter([
             }
         ]
     },
-    
+    {
+        path: '*',
+        element: <NotFoundPage/>
+    }
 ])
 
 export default router
