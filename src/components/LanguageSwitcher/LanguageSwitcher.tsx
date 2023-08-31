@@ -13,31 +13,18 @@ const LanguageSwitcher = () => {
     })
 
     return <>
-        <div>
-            {/* {codes.map((code) => (
-                <button
-                    key={code}
-                    style={{ fontWeight: i18n.resolvedLanguage === code ? 'bold' : 'normal' }}
-                    onClick={() => i18n.changeLanguage(code)}
-                >
-                    {code}
-                </button>
-            ))} */}
-            <Flex
-                alignItems='center'
-                justifyContent='space-between'
-                direction='row'
-            >
-                <div>Language:</div>
-                <Select
-                    options={options}
-                    value={options.find(option => option.value === i18n.resolvedLanguage)}
-                    onChange={option => option && i18n.changeLanguage(option.value)}
-                />
-            </Flex>
-
-            
-        </div>
+        <Flex
+            alignItems='center'
+            justifyContent='space-between'
+            direction='row'
+        >
+            <div>Language:</div>
+            <Select
+                options={options}
+                value={options.find(option => option.value === i18n.resolvedLanguage)}
+                onChange={option => option && i18n.changeLanguage(option.value)}
+            />
+        </Flex>
     </>
 }
 

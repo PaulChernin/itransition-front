@@ -10,6 +10,7 @@ import FeedBestPage from "../pages/FeedBest/FeedBestPage"
 import FeedLatestPage from "../pages/FeedLatest/FeedLatestPage"
 import CommentsPage from "../pages/Comments/CommentsPage"
 import Layout from "../layout/Layout"
+import FeedTagsPage from "../pages/FeedTags/FeedTagsPage"
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
                     {
                         path: '/feed/latest',
                         element: <FeedLatestPage/>
+                    },
+                    {
+                        path: '/feed/tags',
+                        element: <FeedTagsPage/>
                     }
                 ]
             },
