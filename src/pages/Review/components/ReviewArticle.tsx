@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, Image, VStack } from "@chakra-ui/react"
 import ProductCard from "../../../components/ProductCard/ProductCard"
 import { Review } from "./types/Review"
 import { useNavigate } from "react-router-dom"
@@ -24,6 +24,12 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             </Box>
             <ProductCard
                 product={review.product}
+            />
+            <Image
+                src={review.imageUrl}
+                width='100%'
+                height='200px'
+                objectFit='cover'
             />
             <Box>{review.text}</Box>
             <Box fontSize='2em'>
