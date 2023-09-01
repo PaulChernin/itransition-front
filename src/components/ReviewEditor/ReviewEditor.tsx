@@ -1,6 +1,7 @@
 import { FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react"
 import { Review } from "./types/review"
 import { useTranslation } from "react-i18next"
+import ImageUploader from "../ImageUploader/ImageUploader"
 
 type ReviewEditorProps = {
     review: Review,
@@ -17,6 +18,10 @@ const ReviewEditor = ({ review, setReview }: ReviewEditorProps) => {
                 value={review.title}
                 onChange={e => setReview({...review, title: e.target.value})}
             />
+        </FormControl>
+        <FormControl>
+            <FormControl>Image</FormControl>
+            <ImageUploader setUrl={value => setReview({...review, imageUrl: value})}/>
         </FormControl>
         <FormControl>
             <FormLabel>{t('text')}</FormLabel>

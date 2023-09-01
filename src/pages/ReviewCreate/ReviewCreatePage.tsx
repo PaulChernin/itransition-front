@@ -9,7 +9,8 @@ import { useTranslation } from "react-i18next"
 const defaultReview = {
     title: '',
     text: '',
-    authorScore: 5
+    authorScore: 5,
+    imageUrl: null
 }
 
 const defaultProduct = {

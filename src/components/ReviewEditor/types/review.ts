@@ -1,5 +1,6 @@
 export type Review = {
     title: string,
     text: string,
-    authorScore: number
+    authorScore: number,
+    imageUrl: string | null
 }
