@@ -10,6 +10,7 @@ export const createReview = async (product: Product, review: Review) => {
         title: review.title,
         text: review.text,
         authorsScore: review.authorScore,
+        imageUrl: review.imageUrl,
         tags: []
     })
     console.log(response)
