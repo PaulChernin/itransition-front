@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import TagsList from "../../../components/TagsList/TagsList"
 import Likes from "./Likes"
 import { useTranslation } from "react-i18next"
+import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 
 type ReviewArticleProps = {
     review: Review
@@ -31,7 +32,7 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
                 height='200px'
                 objectFit='cover'
             />
-            <Box>{review.text}</Box>
+            <ReactMarkdown children={review.text} />
             <Box fontSize='2em'>
                 {review.authorsScore} / 10
             </Box>
