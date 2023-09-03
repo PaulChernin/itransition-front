@@ -9,3 +9,9 @@ export const getReviews = async (userId: number, controls: TableControls) => {
     })
     return response.data
 }
+
+export const removeReview = async (id: number) => {
+    await api.post('/review/remove', {
+        id: id
+    })
+}

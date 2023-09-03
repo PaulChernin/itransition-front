@@ -3,7 +3,7 @@ import ReviewsTable from "./ReviewsTable"
 import { Review } from "./types/Review"
 import ReviewsTableControls from "./ReviewsTableControls"
 import { TableControls } from "./types/TableControls"
-import { getReviews } from "./api/api"
+import { getReviews, removeReview } from "./api/api"
 
 type ReviewsProps = {
     userId: number
@@ -26,12 +26,20 @@ const Reviews = ({ userId }: ReviewsProps) => {
         loadReviews(1, controls)
     }, [userId, controls])
 
+    const remove = async (id: number) => {
+        await removeReview(id)
+        loadReviews(userId, controls)
+    }
+
     return <>
         <ReviewsTableControls
             controls={controls}
             setControls={setControls}    
         />
-        <ReviewsTable reviews={reviews} />
+        <ReviewsTable
+            reviews={reviews}
+            remove={remove}
+        />
     </>
 }
 

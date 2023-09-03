@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 type ReviewsTableProps = {
-    reviews: Array<Review>
+    reviews: Array<Review>,
+    remove: (id: number) => void
 }
 
-const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
+const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
     
@@ -17,10 +18,6 @@ const ReviewsTable = ({ reviews }: ReviewsTableProps) => {
 
     const edit = (id: number) => {
         navigate('/review-edit/' + id)
-    }
-
-    const remove = (id: number) => {
-        
     }
 
     return <>
