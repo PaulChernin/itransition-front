@@ -5,6 +5,7 @@ import { Button } from "@chakra-ui/react"
 import ProductEditor, { Product } from "./components/ProductEditor"
 import { createReview } from "./api/api"
 import { useTranslation } from "react-i18next"
+import { useParams } from "react-router-dom"
 
 const defaultReview = {
     title: '',
@@ -23,9 +24,10 @@ const ReviewCreatePage = () => {
     const [review, setReview] = useState<Review>(defaultReview)
     const [product, setProduct] = useState<Product>(defaultProduct)
     const { t } = useTranslation()
+    const { userId } = useParams()
 
     const publish = async () => {
-        await createReview(product, review)
+        await createReview(product, review, userId ? parseInt(userId) : 0) // TODO
     }
 
     return <>
@@ -39,6 +41,7 @@ const ReviewCreatePage = () => {
         />
         <Button
             onClick={publish}
+            marginTop={3}
         >
             {t('publish')}   
         </Button>

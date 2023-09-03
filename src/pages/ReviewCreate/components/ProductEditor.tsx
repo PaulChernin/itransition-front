@@ -17,7 +17,7 @@ const ProductEditor = ({ product, setProduct }: ReviewEditorProps) => {
     
     return <>
         <FormControl>
-            <FormLabel>{t('publish')}</FormLabel>
+            <FormLabel>Product</FormLabel>
             <CategorySelect
                 category={product.category}
                 setCategory={value => setProduct({...product, category: value})}
