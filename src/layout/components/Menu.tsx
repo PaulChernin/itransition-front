@@ -1,6 +1,6 @@
 import { Button, Drawer, DrawerContent, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
-import ThemeModeSwitcher from "../ThemeModeSwitcher/ThemeModeSwitcher"
+import LanguageSwitcher from "./LanguageSwitcher"
+import ThemeModeSwitcher from "./ThemeModeSwitcher"
 
 const Menu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
