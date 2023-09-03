@@ -17,16 +17,20 @@ const defaultControls: TableControls = {
 const Reviews = ({ userId }: ReviewsProps) => {
     const [controls, setControls] = useState<TableControls>(defaultControls)
     const [reviews, setReviews] = useState<Array<Review>>([])
+
+    const loadReviews = async (userId: number, controls: TableControls) => {
+        setReviews(await getReviews(userId, controls))
+    }
     
     useEffect(() => {
-        getReviews(userId, controls)
-            .then(reviews => {
-                setReviews(reviews)
-            })
-    }, [userId])
+        loadReviews(1, controls)
+    }, [userId, controls])
 
     return <>
-        <ReviewsTableControls controls={controls} />
+        <ReviewsTableControls
+            controls={controls}
+            setControls={setControls}    
+        />
         <ReviewsTable reviews={reviews} />
     </>
 }
