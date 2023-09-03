@@ -1,9 +1,8 @@
 import { Button } from "@chakra-ui/react"
-import { useProfile } from "../../hooks/profile/useProfile"
-
+import { useProfileStore } from "../../hooks/profile/useProfileStore"
 
 const Login = () => {
-    const { setProfile } = useProfile()
+    const setProfile = useProfileStore(state => state.setProfile)
     
     const login = () => {
         setProfile({
