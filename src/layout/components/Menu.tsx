@@ -1,6 +1,7 @@
 import { Button, Drawer, DrawerContent, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeModeSwitcher from "./ThemeModeSwitcher"
+import Login from "./Login"
 
 const Menu = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -19,6 +20,7 @@ const Menu = () => {
             >
                 <LanguageSwitcher/>
                 <ThemeModeSwitcher/>
+                <Login/>
             </DrawerContent>
         </Drawer>
     </>
