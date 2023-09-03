@@ -3,7 +3,7 @@ import { Review } from "../../../components/ReviewEditor/types/review"
 import { Product } from "../components/ProductEditor"
 
 export const createReview = async (product: Product, review: Review, authorId: number) => {
-    await api.post('/review/create', {
+    const response = await api.post('/review/create', {
         authorId: authorId,
         category: product.category,
         productName: product.name,
@@ -13,4 +13,5 @@ export const createReview = async (product: Product, review: Review, authorId: n
         imageUrl: review.imageUrl,
         tags: []
     })
+    return response.data.id
 }

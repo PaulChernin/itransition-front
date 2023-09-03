@@ -18,7 +18,7 @@ const TagsCloud = () => {
             maxSize={35}
             tags={tags}
             className="simple-cloud"
-            onClick={(e: any) => console.log(e)}
+            onClick={(e) => console.log(e)}
         />
     </>
 }

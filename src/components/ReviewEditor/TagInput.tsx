@@ -1,5 +1,4 @@
 import { Button, HStack, Input, Tag, TagLabel, VStack } from "@chakra-ui/react"
-import TagAutocomplete from "./TagAutocomplete"
 import { useState } from "react"
 
 type TagInputProps = {
@@ -9,8 +8,6 @@ type TagInputProps = {
 
 const TagInput = ({ tags, setTags }: TagInputProps) => {
     const [value, setValue] = useState('')
-
-    console.log(tags)
 
     const add = () => {
         setTags([...tags, value])
