@@ -10,7 +10,8 @@ const defaultReview = {
     title: '',
     text: '',
     authorScore: 5,
-    imageUrl: null
+    imageUrl: null,
+    tags: []
 }
 
 const defaultProduct = {
