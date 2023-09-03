@@ -1,5 +1,5 @@
-import { Select } from "chakra-react-select"
 import { useTranslation } from "react-i18next"
+import Select from "../../ui/Select"
 
 type CategorySelectProps = {
     category: string,
@@ -21,8 +21,8 @@ const CategorySelect = ({ category, setCategory }: CategorySelectProps) => {
     return <>
         <Select
             options={options}
-            value={options.find(option => option.value === category)}
-            onChange={option => option && setCategory(option.value)}
+            value={category}
+            setValue={value => value && setCategory(value)}
         />
     </>
 }
