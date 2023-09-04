@@ -4,10 +4,13 @@ import CommentsList from "./components/CommentsList"
 import { Comment } from "./components/types/Comment"
 import { createComment, getComments } from "./api/api"
 import CommentSender from "./components/CommentSender"
+import { useProfileStore } from "../../hooks/profile/useProfileStore"
+import { Text } from "@chakra-ui/react"
 
 const CommentsPage = () => {
     const { reviewId } = useParams()
     const [comments, setComments] = useState<Array<Comment>>([])
+    const { profile } = useProfileStore()
 
     const update = () => {
         getComments(reviewId ? parseInt(reviewId) : 0)
@@ -21,13 +24,20 @@ const CommentsPage = () => {
     }, [reviewId])
 
     const send = async (text: string) => {
-        await createComment(reviewId ? parseInt(reviewId) : 0, text)
+        await createComment(reviewId ? parseInt(reviewId) : 0, text, profile?.userId || 0) // TODO
         update()
     }
 
     return <>
         <CommentsList comments={comments} />
-        <CommentSender send={send} />
+        {profile
+            ?
+            <CommentSender send={send} />
+            :
+            <Text marginTop={6}>
+                Log in to leave comments
+            </Text>
+        }
     </>
 }
 

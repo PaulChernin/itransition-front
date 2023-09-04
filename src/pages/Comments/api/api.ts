@@ -7,10 +7,10 @@ export const getComments = async (reviewId: number) => {
     return response.data
 }
 
-export const createComment = async (reviewId: number, text: string) => {
+export const createComment = async (reviewId: number, text: string, userId: number) => {
     await api.post('/comment/create', {
         text: text,
         reviewId: reviewId,
-        userId: 3
+        userId: userId
     })
 }
