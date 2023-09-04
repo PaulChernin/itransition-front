@@ -1,4 +1,4 @@
-import { Box, Button, Textarea } from "@chakra-ui/react"
+import { Button, Text, Textarea, VStack } from "@chakra-ui/react"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -11,18 +11,22 @@ const CommentSender = ({ send }: CommentSenderProps) => {
     const { t } = useTranslation()
 
     return <>
-        <Box marginTop={3}>
+        <VStack
+            spacing={3}
+            marginTop={6}
+            alignItems='flex-start'
+        >
+            <Text>Your comment:</Text>
             <Textarea
                 value={text}
                 onChange={e => setText(e.target.value)}
-                marginBottom={3}
             />
             <Button
                 onClick={() => send(text)}
             >
                 {t('send')}
             </Button>
-        </Box>
+        </VStack>
     </>
 }
 

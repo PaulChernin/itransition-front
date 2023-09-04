@@ -15,7 +15,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             padding={5}
             bgColor={useColorModeValue('gray.100', 'gray.900')}
         >
-            <div>{categoryName}: {product.name} ()</div>
+            <div>{categoryName}: {product.name}</div>
         </Box>
     </>
 }

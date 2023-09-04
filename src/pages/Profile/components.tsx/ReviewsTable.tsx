@@ -16,9 +16,9 @@ const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
         navigate('/review/' + id)
     }
 
-    const edit = (id: number) => {
-        navigate('/review-edit/' + id)
-    }
+    // const edit = (id: number) => {
+    //     navigate('/review-edit/' + id)
+    // }
 
     return <>
         <TableContainer>
@@ -32,11 +32,11 @@ const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
                                     {t('open')}
                                 </Button>
                             </Td>
-                            <Td>
+                            {/* <Td>
                                 <Button onClick={() => edit(review.id)}>
                                     {t('edit')}
                                 </Button>
-                            </Td>
+                            </Td> */}
                             <Td>
                                 <Button onClick={() => remove(review.id)}>
                                     {t('delete')}

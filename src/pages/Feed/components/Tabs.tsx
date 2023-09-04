@@ -11,10 +11,10 @@ const tabs = [
         label: 'new',
         route: '/feed/latest'
     },
-    {
-        label: 'tags',
-        route: '/feed/tags'
-    }
+    // {
+    //     label: 'tags',
+    //     route: '/feed/tags'
+    // }
 ]
 
 const Tabs = () => {

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, VStack } from "@chakra-ui/react"
+import { Box, Button, Flex, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../../../components/ProductCard/ProductCard"
 import { Review } from "./types/Review"
 import { useNavigate } from "react-router-dom"
@@ -6,6 +6,7 @@ import TagsList from "../../../components/TagsList/TagsList"
 import Likes from "./Likes"
 import { useTranslation } from "react-i18next"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import Image from "./Image"
 
 type ReviewArticleProps = {
     review: Review
@@ -26,12 +27,7 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             <ProductCard
                 product={review.product}
             />
-            <Image
-                src={review.imageUrl}
-                width='100%'
-                height='200px'
-                objectFit='cover'
-            />
+            <Image url={review.imageUrl} />
             <ReactMarkdown children={review.text} />
             <Box fontSize='2em'>
                 {review.authorsScore} / 10

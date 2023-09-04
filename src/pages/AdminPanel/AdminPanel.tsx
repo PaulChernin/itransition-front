@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUsers } from "./api/api"
 import { Link } from "react-router-dom"
-import { VStack } from "@chakra-ui/react"
+import { Heading, VStack } from "@chakra-ui/react"
 import { User } from "./types/User"
 
 const AdminPanelPage = () => {
@@ -15,6 +15,9 @@ const AdminPanelPage = () => {
     })
 
     return <>
+        <Heading as='h1' size='lg' mb={3}>
+            Users:
+        </Heading>
         <VStack align='left'>
             {users.map(user =>
                 <Link
