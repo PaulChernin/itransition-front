@@ -1,7 +1,7 @@
 import { Button, Drawer, DrawerContent, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeModeSwitcher from "./ThemeModeSwitcher"
-import Login from "./Login"
+import LoginButton from "./LoginButton"
 import { useNavigate } from "react-router-dom"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
 
@@ -24,7 +24,7 @@ const Menu = () => {
             >
                 <LanguageSwitcher/>
                 <ThemeModeSwitcher/>
-                <Login/>
+                <LoginButton/>
                 {profile?.isAdmin &&
                     <Button onClick={() => navigate('/admin')}>
                         Users list

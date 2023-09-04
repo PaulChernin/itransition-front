@@ -17,7 +17,7 @@ const saveStorageProfile = (profile: Profile | null) => {
 
 interface ProfileState {
     profile: Profile | null,
-    setProfile: (profile: Profile) => void
+    setProfile: (profile: Profile | null) => void
 }
 
 export const useProfileStore = create<ProfileState>()((set) => ({
