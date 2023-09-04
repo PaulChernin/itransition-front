@@ -12,6 +12,8 @@ import CommentsPage from "../pages/Comments/CommentsPage"
 import Layout from "../layout/Layout"
 import FeedTagsPage from "../pages/FeedTags/FeedTagsPage"
 import NotFoundPage from "../pages/404/NotFoundPage"
+import AdminRoutes from "./AdminRoutes"
+import ProtectedRoutes from "./ProtectedRoutes"
 
 const router = createBrowserRouter([
     {
@@ -41,12 +43,8 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                path: '/user/:id',
-                element: <ProfilePage/>
-            },
-            {
-                path: '/admin',
-                element: <AdminPanelPage/>,
+                path: '/vk-auth',
+                element: <VkAuthHandlePage/>
             },
             {
                 path: '/review/:id',
@@ -57,16 +55,32 @@ const router = createBrowserRouter([
                 element: <CommentsPage/>
             },
             {
-                path: '/review-create/:userId',
-                element: <ReviewCreatePage/>
+                path: '/',
+                element: <ProtectedRoutes/>,
+                children: [
+                    {
+                        path: '/user/:id',
+                        element: <ProfilePage/>
+                    },
+                    {
+                        path: '/review-create/:userId',
+                        element: <ReviewCreatePage/>
+                    },
+                    {
+                        path: '/review-edit/:id',
+                        element: <ReviewEditPage/>
+                    },
+                ]
             },
             {
-                path: '/review-edit/:id',
-                element: <ReviewEditPage/>
-            },
-            {
-                path: '/vk-auth',
-                element: <VkAuthHandlePage/>
+                path: '/',
+                element: <AdminRoutes/>,
+                children: [
+                    {
+                        path: '/admin',
+                        element: <AdminPanelPage/>
+                    }
+                ]
             }
         ]
     },
