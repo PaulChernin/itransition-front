@@ -1,6 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
 import FeedPage from "../pages/Feed/FeedPage"
-import ProfilePage from "../pages/Profile/ProfilePage"
 import AdminPanelPage from "../pages/AdminPanel/AdminPanel"
 import ReviewPage from "../pages/Review/ReviewPage"
 import ReviewCreatePage from "../pages/ReviewCreate/ReviewCreatePage"
@@ -14,6 +13,8 @@ import FeedTagsPage from "../pages/FeedTags/FeedTagsPage"
 import NotFoundPage from "../pages/404/NotFoundPage"
 import AdminRoutes from "./AdminRoutes"
 import ProtectedRoutes from "./ProtectedRoutes"
+import MyReviewsPage from "../pages/MyReviews/MyReviewsPage"
+import UserReviewsPage from "../pages/UserReviews/UserReviewsPage"
 
 const router = createBrowserRouter([
     {
@@ -55,8 +56,8 @@ const router = createBrowserRouter([
                 element: <ProtectedRoutes/>,
                 children: [
                     {
-                        path: '/user/:id',
-                        element: <ProfilePage/>
+                        path: '/my-reviews',
+                        element: <MyReviewsPage/>
                     },
                     {
                         path: '/review-create/:userId',
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
                     {
                         path: '/admin',
                         element: <AdminPanelPage/>
+                    },
+                    {
+                        path: '/user-reviews/:userId',
+                        element: <UserReviewsPage/>
                     }
                 ]
             }

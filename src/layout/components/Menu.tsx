@@ -31,7 +31,7 @@ const Menu = () => {
                     </Button>
                 }
                 {profile &&
-                    <Button onClick={() => navigate('/user/' + profile.userId)}>
+                    <Button onClick={() => navigate('my-reviews')}>
                         My reviews
                     </Button>
                 }

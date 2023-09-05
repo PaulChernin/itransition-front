@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"
-import Select from "../../../ui/Select"
+import Select from "../../ui/Select"
 
 type SortSelectProps = {
     sort: string,

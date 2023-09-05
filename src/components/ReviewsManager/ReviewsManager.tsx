@@ -5,7 +5,7 @@ import ReviewsTableControls from "./ReviewsTableControls"
 import { TableControls } from "./types/TableControls"
 import { getReviews, removeReview } from "./api/api"
 import { useNavigate } from "react-router-dom"
-import { Button, VStack } from "@chakra-ui/react"
+import { Button, Text, VStack } from "@chakra-ui/react"
 
 type ReviewsProps = {
     userId: number
@@ -16,7 +16,7 @@ const defaultControls: TableControls = {
     sortBy: 'date'
 }
 
-const Reviews = ({ userId }: ReviewsProps) => {
+const ReviewsManager = ({ userId }: ReviewsProps) => {
     const navigate = useNavigate()
     const [controls, setControls] = useState<TableControls>(defaultControls)
     const [reviews, setReviews] = useState<Array<Review>>([])
@@ -26,7 +26,7 @@ const Reviews = ({ userId }: ReviewsProps) => {
     }
     
     useEffect(() => {
-        loadReviews(1, controls)
+        loadReviews(userId, controls)
     }, [userId, controls])
 
     const remove = async (id: number) => {
@@ -43,12 +43,17 @@ const Reviews = ({ userId }: ReviewsProps) => {
                 controls={controls}
                 setControls={setControls}
             />
-            <ReviewsTable
-                reviews={reviews}
-                remove={remove}
-            />
+            {reviews.length ?
+                <ReviewsTable
+                    reviews={reviews}
+                    remove={remove}
+                />
+                :
+                <Text>No reviews yet</Text>
+            }
+            
         </VStack>
     </>
 }
 
-export default Reviews
+export default ReviewsManager

@@ -12,7 +12,7 @@ const AdminPanelPage = () => {
             .then(users => {
                 setUsers(users)
             })
-    })
+    }, [])
 
     return <>
         <Heading as='h1' size='lg' mb={3}>
@@ -22,7 +22,7 @@ const AdminPanelPage = () => {
             {users.map(user =>
                 <Link
                     key={user.id}
-                    to={'/user/' + user.id}
+                    to={'/user-reviews/' + user.id}
                 >
                     {user.nick}
                 </Link>    

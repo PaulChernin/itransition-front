@@ -1,7 +1,7 @@
 import { HStack, Text } from "@chakra-ui/react"
 import { TableControls } from "./types/TableControls"
-import CategorySelect from "../../../components/CategorySelect/CategorySelect"
 import SortSelect from "./SortSelect"
+import CategorySelect from "../CategorySelect/CategorySelect"
 
 type ReviewsTableControlsProps = {
     controls: TableControls,

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom"
-import Reviews from "./components.tsx/Reviews"
+import ReviewsManager from "../../components/ReviewsManager/ReviewsManager"
 
 const ProfilePage = () => {
     const { id } = useParams()
 
     return <>
         {id &&
-            <Reviews userId={parseInt(id)} />
+            <ReviewsManager userId={parseInt(id)} />
         }
     </>
 }

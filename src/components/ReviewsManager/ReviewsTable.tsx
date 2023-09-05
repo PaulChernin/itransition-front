@@ -1,7 +1,7 @@
 import { Button, Table, TableContainer, Tbody, Td, Tr } from "@chakra-ui/react"
-import { Review } from "./types/Review"
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import { Review } from "./types/Review"
 
 type ReviewsTableProps = {
     reviews: Array<Review>,
