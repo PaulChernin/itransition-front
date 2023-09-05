@@ -34,7 +34,7 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             </Box>
             <TagsList tags={review.tags} />
             <Flex alignItems='center' gap={5}>
-                <Likes reviewId={review.id} userId={3} />
+                <Likes review={review}/>
                 <Button onClick={() => navigate('/comments/' + review.id)}>
                     {t('comments')}
                 </Button>

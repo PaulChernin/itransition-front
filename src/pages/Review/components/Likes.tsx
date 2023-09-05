@@ -1,35 +1,40 @@
-import { Checkbox } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { addLike, getLikes } from "./api.ts/api"
+import { addLike, getLike } from "./api.ts/api"
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
+import { useProfileStore } from "../../../hooks/profile/useProfileStore"
+import { Review } from "./types/Review"
 
 type LikesProps = {
-    reviewId: number,
-    userId: number
+    review: Review
 }
 
-const Likes = ({ reviewId, userId }: LikesProps) => {
+const Likes = ({ review }: LikesProps) => {
     const [isLiked, setIsLiked] = useState(false)
-    const [count, setCount] = useState(0)
+    const { profile } = useProfileStore()
 
     useEffect(() => {
-        getLikes(reviewId, userId)
-            .then(response => {
-                setIsLiked(response.userLike)
-                setCount(response.count)
-            })
-    }, [reviewId, userId])
+        if (profile) {
+            getLike(review.id, profile.userId)
+                .then(response => {
+                    setIsLiked(response.userLike)
+                })
+        }
+    }, [review, profile])
 
     const handleAddLike = async () => {
-        const response = await addLike(reviewId, userId)
-        setCount(response.count)
+        if (profile) {
+            await addLike(review.id, profile.userId)
+        }
     }
 
     return <>
-        <Checkbox
-            checked={isLiked}
-            onChange={handleAddLike}
-        />
-        <div>{count}</div>
+        <Button
+            onClick={handleAddLike}
+            leftIcon={isLiked ? <AiFillHeart/> : <AiOutlineHeart/> }
+        >
+            {isLiked ? review.likesCount + 1 : review.likesCount}
+        </Button>
     </>
 }
 
