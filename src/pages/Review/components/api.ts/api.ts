@@ -1,6 +1,6 @@
 import api from "../../../../api/api"
 
-export const getLikes = async (reviewId: number, userId: number) => {
+export const getLike = async (reviewId: number, userId: number) => {
     const response = await api.post('/like/get/byReview', {
         userId: userId,
         reviewId: reviewId
