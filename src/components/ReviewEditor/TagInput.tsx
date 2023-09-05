@@ -11,6 +11,7 @@ const TagInput = ({ tags, setTags }: TagInputProps) => {
 
     const add = () => {
         setTags([...tags, value])
+        setValue('')
     }
 
     const remove = (tag: string) => {
