@@ -5,7 +5,7 @@ import AdminPanelPage from "../pages/AdminPanel/AdminPanel"
 import ReviewPage from "../pages/Review/ReviewPage"
 import ReviewCreatePage from "../pages/ReviewCreate/ReviewCreatePage"
 import ReviewEditPage from "../pages/ReviewEdit/ReviewEditPage"
-import VkAuthHandlePage from "../auth/HandleVkAuthPage"
+import VkAuthHandlePage from "../pages/HandleVkAuth/HandleVkAuthPage"
 import FeedBestPage from "../pages/FeedBest/FeedBestPage"
 import FeedLatestPage from "../pages/FeedLatest/FeedLatestPage"
 import CommentsPage from "../pages/Comments/CommentsPage"
@@ -41,10 +41,6 @@ const router = createBrowserRouter([
                         element: <FeedTagsPage/>
                     }
                 ]
-            },
-            {
-                path: '/vk-auth',
-                element: <VkAuthHandlePage/>
             },
             {
                 path: '/review/:id',
@@ -83,6 +79,10 @@ const router = createBrowserRouter([
                 ]
             }
         ]
+    },
+    {
+        path: '/vk-auth',
+        element: <VkAuthHandlePage/>
     },
     {
         path: '*',

@@ -1,15 +1,17 @@
 import { Button } from "@chakra-ui/react"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
+import { redirectAuth } from "../../auth/vkAuth"
 
 const LoginButton = () => {
     const { profile, setProfile } = useProfileStore()
     
     const login = () => {
-        setProfile({
-            userId: 3,
-            userNick: 'Joe',
-            isAdmin: false
-        })
+        // setProfile({
+        //     userId: 3,
+        //     userNick: 'Joe',
+        //     isAdmin: true
+        // })
+        redirectAuth()
     }
 
     const logout = () => {
@@ -24,7 +26,7 @@ const LoginButton = () => {
             </Button>
             :
             <Button onClick={login}>
-                Log in
+                Log in with VK
             </Button>
         }
     </>

@@ -11,6 +11,7 @@ export type Review = {
     product: Product,
     authorsScore: number,
     tags: Array<string>,
-    likesCount: number,
     imageUrl: string
+    likesCount: number,
+    commentsCount: number
 }
