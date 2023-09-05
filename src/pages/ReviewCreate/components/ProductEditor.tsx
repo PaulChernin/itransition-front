@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { FormControl, FormLabel, Input, VStack } from "@chakra-ui/react"
 import CategorySelect from "../../../components/CategorySelect/CategorySelect"
 import { useTranslation } from "react-i18next"
 
@@ -16,20 +16,22 @@ const ProductEditor = ({ product, setProduct }: ReviewEditorProps) => {
     const { t } = useTranslation()
     
     return <>
-        <FormControl>
-            <FormLabel>Product</FormLabel>
-            <CategorySelect
-                category={product.category}
-                setCategory={value => setProduct({...product, category: value})}
-            />
-        </FormControl>
-        <FormControl>
-            <FormLabel>{t('name')}</FormLabel>
-            <Input
-                value={product.name}
-                onChange={e => setProduct({...product, name: e.target.value})}
-            />
-        </FormControl>
+        <VStack spacing={4}>
+            <FormControl>
+                <FormLabel>Product</FormLabel>
+                <CategorySelect
+                    category={product.category}
+                    setCategory={value => setProduct({...product, category: value})}
+                />
+            </FormControl>
+            <FormControl>
+                <FormLabel>{t('name')}</FormLabel>
+                <Input
+                    value={product.name}
+                    onChange={e => setProduct({...product, name: e.target.value})}
+                />
+            </FormControl>
+        </VStack>
     </>
 }
 

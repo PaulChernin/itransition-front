@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ReviewEditor from "../../components/ReviewEditor/ReviewEditor"
 import { Review } from "../../components/ReviewEditor/types/review"
-import { Button } from "@chakra-ui/react"
+import { Button, VStack } from "@chakra-ui/react"
 import ProductEditor, { Product } from "./components/ProductEditor"
 import { createReview } from "./api/api"
 import { useTranslation } from "react-i18next"
@@ -33,20 +33,21 @@ const ReviewCreatePage = () => {
     }
 
     return <>
-        <ProductEditor
-            product={product}
-            setProduct={setProduct}
-        />
-        <ReviewEditor
-            review={review}
-            setReview={setReview}
-        />
-        <Button
-            onClick={publish}
-            marginTop={3}
-        >
-            {t('publish')}   
-        </Button>
+        <VStack spacing={4} align='left'>
+            <ProductEditor
+                product={product}
+                setProduct={setProduct}
+            />
+            <ReviewEditor
+                review={review}
+                setReview={setReview}
+            />
+            <Button
+                onClick={publish}
+            >
+                {t('publish')}   
+            </Button>
+        </VStack>
     </>
 }
 
