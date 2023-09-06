@@ -11,7 +11,7 @@ export const redirectAuth = () => Connect.redirectAuth({
 })
 
 const saveToken = (token: string) => {
-  sessionStorage.setItem('token', token)
+  localStorage.setItem('token', token)
 }
 
 export const handleSilentToken = async (token: string) => {
