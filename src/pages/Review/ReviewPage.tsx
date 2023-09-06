@@ -1,18 +1,27 @@
-import { useParams } from "react-router-dom"
 import ReviewArticle from "./components/ReviewArticle"
 import { Review } from "./components/types/Review"
 import { useEffect, useState } from "react"
 import { getReview } from "./api/api"
+import { useNumberParam } from "../../hooks/useNumberParam"
+import { useNavigate } from "react-router-dom"
 
 const ReviewPage = () => {
-    const { id } = useParams()
+    const id = useNumberParam('id')!
+    const navigate = useNavigate()
+
     const [review, setReview] = useState<Review>()
+
+    const loadReview = async (id: number) => {
+        const review = await getReview(id)
+        if (!review) {
+            navigate('/404')
+            return
+        }
+        setReview(review)
+    }
     
     useEffect(() => {
-        getReview(id ? parseInt(id) : 0)
-            .then(review => {
-                setReview(review)
-            })
+        loadReview(id)
     }, [id])
 
     return <>

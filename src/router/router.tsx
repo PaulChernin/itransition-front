@@ -15,6 +15,7 @@ import AdminRoutes from "./AdminRoutes"
 import ProtectedRoutes from "./ProtectedRoutes"
 import MyReviewsPage from "../pages/MyReviews/MyReviewsPage"
 import UserReviewsPage from "../pages/UserReviews/UserReviewsPage"
+import ValidateParams from "./ValidateParams"
 
 const router = createBrowserRouter([
     {
@@ -45,11 +46,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/review/:id',
-                element: <ReviewPage/>
+                element: (
+                    <ValidateParams paramName="id">
+                        <ReviewPage/>
+                    </ValidateParams>
+                )
             },
             {
                 path: '/comments/:reviewId',
-                element: <CommentsPage/>
+                element: (
+                    <ValidateParams paramName="reviewId">
+                        <CommentsPage/>
+                    </ValidateParams>
+                )
             },
             {
                 path: '/',
@@ -61,11 +70,19 @@ const router = createBrowserRouter([
                     },
                     {
                         path: '/review-create/:userId',
-                        element: <ReviewCreatePage/>
+                        element: (
+                            <ValidateParams paramName="userId">
+                                <ReviewCreatePage/>
+                            </ValidateParams>
+                        )
                     },
                     {
                         path: '/review-edit/:id',
-                        element: <ReviewEditPage/>
+                        element: (
+                            <ValidateParams paramName="userId">
+                                <ReviewEditPage/>
+                            </ValidateParams>
+                        )
                     },
                 ]
             },
@@ -79,7 +96,11 @@ const router = createBrowserRouter([
                     },
                     {
                         path: '/user-reviews/:userId',
-                        element: <UserReviewsPage/>
+                        element: (
+                            <ValidateParams paramName="userId">
+                                <UserReviewsPage/>
+                            </ValidateParams>
+                        )
                     }
                 ]
             }
@@ -88,6 +109,10 @@ const router = createBrowserRouter([
     {
         path: '/vk-auth',
         element: <VkAuthHandlePage/>
+    },
+    {
+        path: '/404',
+        element: <NotFoundPage/>
     },
     {
         path: '*',

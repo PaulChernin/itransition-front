@@ -1,15 +1,15 @@
 import { Heading } from "@chakra-ui/react"
 import ReviewsManager from "../../components/ReviewsManager/ReviewsManager"
-import { useParams } from "react-router-dom"
+import { useNumberParam } from "../../hooks/useNumberParam"
 
 const UserReviewsPage = () => {
-    const { userId } = useParams()
+    const userId = useNumberParam('userId')!
     
     return <>
         <Heading as='h1' size='lg'>
             User reviews:
         </Heading>
-        <ReviewsManager userId={userId ? parseInt(userId) : 0} />
+        <ReviewsManager userId={userId} />
     </>
 }
 

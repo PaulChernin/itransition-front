@@ -5,7 +5,8 @@ import { Button, VStack } from "@chakra-ui/react"
 import ProductEditor, { Product } from "./components/ProductEditor"
 import { createReview } from "./api/api"
 import { useTranslation } from "react-i18next"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useNumberParam } from "../../hooks/useNumberParam"
 
 const defaultReview = {
     title: '',
@@ -24,11 +25,11 @@ const ReviewCreatePage = () => {
     const [review, setReview] = useState<Review>(defaultReview)
     const [product, setProduct] = useState<Product>(defaultProduct)
     const { t } = useTranslation()
-    const { userId } = useParams()
+    const userId = useNumberParam('userId')!
     const navigate = useNavigate()
 
     const publish = async () => {
-        const id = await createReview(product, review, userId ? parseInt(userId) : 0) // TODO
+        const id = await createReview(product, review, userId)
         navigate('/review/' + id)
     }
 
