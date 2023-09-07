@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { addLike, getLike } from "./api.ts/api"
+import { addLike, getLike, getLikeCount } from "./api.ts/api"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { useProfileStore } from "../../../hooks/profile/useProfileStore"
 import { Review } from "./types/Review"
@@ -11,20 +11,30 @@ type LikesProps = {
 
 const Likes = ({ review }: LikesProps) => {
     const [isLiked, setIsLiked] = useState(false)
+    const [count, setCount] = useState(0)
     const { profile } = useProfileStore()
 
-    useEffect(() => {
+    const load = () => {
+        getLikeCount(review.id)
+            .then((count: number) => {
+                setCount(count)
+            })
         if (profile) {
             getLike(review.id, profile.userId)
                 .then(response => {
                     setIsLiked(response.userLike)
                 })
         }
-    }, [review, profile])
+    }
+
+    useEffect(() => {
+        load()
+    })
 
     const handleAddLike = async () => {
         if (profile) {
             await addLike(review.id, profile.userId)
+            load()
         }
     }
 
@@ -33,7 +43,7 @@ const Likes = ({ review }: LikesProps) => {
             onClick={handleAddLike}
             leftIcon={isLiked ? <AiFillHeart/> : <AiOutlineHeart/> }
         >
-            {isLiked ? review.likesCount + 1 : review.likesCount}
+            {count}
         </Button>
     </>
 }

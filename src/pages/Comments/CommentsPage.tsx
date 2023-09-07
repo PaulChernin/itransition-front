@@ -24,7 +24,7 @@ const CommentsPage = () => {
     }, [reviewId])
 
     const send = async (text: string) => {
-        await createComment(reviewId, text, profile?.userId || 0) // TODO
+        await createComment(reviewId, text, profile!.userId)
         update()
     }
 
