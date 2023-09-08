@@ -2,11 +2,11 @@ import { Button, HStack, Input, Tag, TagLabel, VStack } from "@chakra-ui/react"
 import { useState } from "react"
 
 type TagInputProps = {
-    tags: Array<string>,
-    setTags: (value: Array<string>) => void
+    value: Array<string>,
+    setValue: (value: Array<string>) => void
 }
 
-const TagInput = ({ tags, setTags }: TagInputProps) => {
+const TagInput = ({ value: tags, setValue: setTags }: TagInputProps) => {
     const [value, setValue] = useState('')
 
     const add = () => {

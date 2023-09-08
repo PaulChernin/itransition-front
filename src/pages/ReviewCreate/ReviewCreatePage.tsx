@@ -1,10 +1,10 @@
 import { useState } from "react"
 import ReviewEditor from "../../components/ReviewEditor/ReviewEditor"
 import { Review } from "../../components/ReviewEditor/types/review"
-import { Button, VStack } from "@chakra-ui/react"
+import {  VStack } from "@chakra-ui/react"
 import ProductEditor, { Product } from "./components/ProductEditor"
 import { createReview } from "./api/api"
-import { useTranslation } from "react-i18next"
+// import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { useNumberParam } from "../../hooks/useNumberParam"
 
@@ -22,13 +22,13 @@ const defaultProduct = {
 }
 
 const ReviewCreatePage = () => {
-    const [review, setReview] = useState<Review>(defaultReview)
     const [product, setProduct] = useState<Product>(defaultProduct)
-    const { t } = useTranslation()
+    // const { t } = useTranslation()
     const userId = useNumberParam('userId')!
     const navigate = useNavigate()
 
-    const publish = async () => {
+    const publish = async (review: Review) => {
+        console.log(review)
         const id = await createReview(product, review, userId)
         navigate('/review/' + id)
     }
@@ -40,14 +40,9 @@ const ReviewCreatePage = () => {
                 setProduct={setProduct}
             />
             <ReviewEditor
-                review={review}
-                setReview={setReview}
+                defaultReview={defaultReview}
+                submit={publish}
             />
-            <Button
-                onClick={publish}
-            >
-                {t('publish')}   
-            </Button>
         </VStack>
     </>
 }

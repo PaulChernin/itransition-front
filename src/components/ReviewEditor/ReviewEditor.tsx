@@ -1,52 +1,88 @@
-import { FormControl, FormLabel, Input, Textarea, VStack } from "@chakra-ui/react"
+import { Button, FormErrorMessage, Input, Textarea, VStack } from "@chakra-ui/react"
 import { Review } from "./types/review"
 import { useTranslation } from "react-i18next"
 import ImageUploader from "../ImageUploader/ImageUploader"
 import TagInput from "./TagInput"
 import InputNumber from "../../ui/InputNumber"
+import { useState } from "react"
+import FormElement from "../../ui/FormElement"
+import { ValidationError, array, number, object, string } from "yup"
 
 type ReviewEditorProps = {
-    review: Review,
-    setReview: (review: Review) => void
+    defaultReview: Review,
+    submit: (review: Review) => void
 }
 
-const ReviewEditor = ({ review, setReview }: ReviewEditorProps) => {
+const reviewSchema = object({
+    title: string().required().trim(),
+    text: string().required().trim(),
+    authorScore: number().required().min(1).max(10),
+    imageUrl: string().nullable().required(),
+    tags: array().of(string().required()).required()
+})
+
+const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
     const { t } = useTranslation()
+    const [review, setReview] = useState(defaultReview)
+    const [errors, setErrors] = useState<Array<string>>([])
+
+    const handleSubmit = () => {
+        try {
+            const result = reviewSchema.validateSync(review, {
+                abortEarly: false
+            })
+            submit(result)
+        } catch (e) {
+            if (e instanceof ValidationError) {
+                setErrors(e.inner.map(error => error.path!))
+            }
+        }
+    }
     
     return <>
         <VStack spacing={4}>
-            <FormControl>
-                <FormLabel>{t('title')}</FormLabel>
+            <FormElement
+                label={t('title')}
+                isInvalid={errors.includes('title')}
+                errorMessage='Title is required'
+            >
                 <Input
                     value={review.title}
                     onChange={e => setReview({...review, title: e.target.value})}
                 />
-            </FormControl>
-            <FormControl>
-                <FormLabel>{t('text')}</FormLabel>
+            </FormElement>
+            <FormElement
+                label={t('text')}
+                isInvalid={errors.includes('text')}
+                errorMessage='Title is required'
+            >
                 <Textarea
                     value={review.text}
                     onChange={e => setReview({...review, text: e.target.value})}
                 />
-            </FormControl>
-            <FormControl>
-                <FormLabel>{t('score')}</FormLabel>
+            </FormElement>
+            <FormElement
+                label={t('score')}
+                isInvalid={errors.includes('authorScore')}
+                errorMessage='Provide score from 1 to 10'
+            >
                 <InputNumber
                     value={review.authorScore}
                     setValue={value => setReview({...review, authorScore: value})}
                 />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Tags</FormLabel>
+            </FormElement>
+            <FormElement label='Tags'>
                 <TagInput
-                    tags={review.tags}
-                    setTags={value => setReview({...review, tags: value})}
+                    value={review.tags}
+                    setValue={value => setReview({...review, tags: value})}
                 />
-            </FormControl>
-            <FormControl>
-                <FormLabel>Image</FormLabel>
+            </FormElement>
+            <FormElement label='Image'>
                 <ImageUploader setUrl={value => setReview({...review, imageUrl: value})}/>
-            </FormControl>
+            </FormElement>
+            <Button type='submit' onClick={handleSubmit}>
+                Submit 
+            </Button>
         </VStack>
     </>
 }
