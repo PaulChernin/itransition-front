@@ -1,9 +1,9 @@
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
 import { Review } from "../../../components/ReviewEditor/types/review"
 import { Product } from "../components/ProductEditor"
 
 export const createReview = async (product: Product, review: Review, authorId: number) => {
-    const response = await api.post('/review/create', {
+    const response = await fetch('/review/create', {
         authorId: authorId,
         category: product.category,
         productName: product.name,
@@ -13,5 +13,5 @@ export const createReview = async (product: Product, review: Review, authorId: n
         imageUrl: review.imageUrl,
         tags: []
     })
-    return response.data.id
+    return response.id as number
 }

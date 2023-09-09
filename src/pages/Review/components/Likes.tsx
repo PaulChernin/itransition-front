@@ -21,8 +21,8 @@ const Likes = ({ review }: LikesProps) => {
             })
         if (profile) {
             getLike(review.id, profile.userId)
-                .then(response => {
-                    setIsLiked(response.userLike)
+                .then(userLike => {
+                    setIsLiked(userLike)
                 })
         }
     }

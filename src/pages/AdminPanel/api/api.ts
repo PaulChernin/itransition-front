@@ -1,6 +1,7 @@
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
+import { User } from "../types/User"
 
 export const getUsers = async () => {
-    const response = await api.post('/user/get/all')
-    return response.data
+    const response = await fetch('/user/get/all')
+    return response as Array<User>
 }

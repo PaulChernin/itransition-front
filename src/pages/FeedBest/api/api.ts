@@ -1,6 +1,7 @@
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
+import { Review } from "../../Review/components/types/Review"
 
 export const getBestReviews = async () => {
-    const response = await api.post('/review/get/best')
-    return response.data
+    const response = await fetch('/review/get/best')
+    return response as Array<Review>
 }

@@ -1,17 +1,18 @@
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
+import { Review } from "../types/Review"
 import { TableControls } from "../types/TableControls"
 
 export const getReviews = async (userId: number, controls: TableControls) => {
-    const response = await api.post('/review/get/byUser', {
+    const response = await fetch('/review/get/byUser', {
         userId: userId,
         category: controls.category,
         sortBy: controls.sortBy
     })
-    return response.data
+    return response as Review
 }
 
 export const removeReview = async (id: number) => {
-    await api.post('/review/remove', {
+    await fetch('/review/remove', {
         id: id
     })
 }

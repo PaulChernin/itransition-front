@@ -1,10 +1,10 @@
-import axios from "axios"
+import Axios from "axios"
 
-const api = axios.create({
+const axios = Axios.create({
     baseURL: import.meta.env.VITE_API_URL
 })
 
-api.interceptors.request.use((request) => {
+axios.interceptors.request.use((request) => {
     const jwt = localStorage.getItem('token')
     if (jwt) {
         request.headers.Authorization = 'Bearer ' + jwt
@@ -12,4 +12,4 @@ api.interceptors.request.use((request) => {
     return request
 })
 
-export default api
+export default axios

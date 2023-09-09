@@ -1,19 +1,9 @@
-import axios, { AxiosError } from "axios"
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
+import { Review } from "../components/types/Review"
 
 export const getReview = async (id: number) => {
-    try {
-        const response = await api.post('/review/get/byId', {
-            id: id
-        })
-        return response.data
-    } catch (e) {
-        if (axios.isAxiosError(e)) {
-            const error = e as AxiosError
-            if (error.response?.status === 404) {
-                return null
-            }
-        }
-        throw e
-    }
+    const response = await fetch('/review/get/byId', {
+        id: id
+    })
+    return response as Review
 }

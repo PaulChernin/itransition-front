@@ -1,5 +1,5 @@
 import { Config, Connect} from '@vkontakte/superappkit'
-import api from '../api/api'
+import axios from '../api/axios'
 import { Profile } from '../hooks/profile/Profile'
 
 Config.init({
@@ -15,7 +15,7 @@ const saveToken = (token: string) => {
 }
 
 export const handleSilentToken = async (token: string) => {
-  const response = await api.post('/vk-auth', {
+  const response = await axios.post('/vk-auth', {
     silentToken: token
   })
   const jwt: string = response.data.token

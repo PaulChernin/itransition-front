@@ -1,10 +1,10 @@
-import api from "../../../api/api"
+import fetch from "../../../api/fetch"
 
 const getTagsByPrefix = async (prefix: string) => {
-    const response = await api.post('/tag/get/byPrefix', {
+    const response = await fetch('/tag/get/byPrefix', {
         prefix: prefix
     })
-    return response.data
+    return response as Array<string>
 }
 
 export {
