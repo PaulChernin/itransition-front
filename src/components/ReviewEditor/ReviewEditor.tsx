@@ -1,4 +1,4 @@
-import { Button, Input, Textarea, VStack } from "@chakra-ui/react"
+import { Button, Input, VStack } from "@chakra-ui/react"
 import { Review } from "./types/review"
 import { useTranslation } from "react-i18next"
 import ImageUploader from "../ImageUploader/ImageUploader"
@@ -7,6 +7,7 @@ import InputNumber from "../../ui/InputNumber"
 import { useState } from "react"
 import FormElement from "../../ui/FormElement"
 import { ValidationError, array, number, object, string } from "yup"
+import { SimpleMdeReact } from "react-simplemde-editor"
 
 type ReviewEditorProps = {
     defaultReview: Review,
@@ -56,9 +57,13 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
                 isInvalid={errors.includes('text')}
                 errorMessage='Text is required'
             >
-                <Textarea
+                {/* <Textarea
                     value={review.text}
                     onChange={e => setReview({...review, text: e.target.value})}
+                /> */}
+                <SimpleMdeReact
+                    value={review.text}
+                    onChange={v => setReview({...review, text: v})}
                 />
             </FormElement>
             <FormElement
