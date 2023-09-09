@@ -1,4 +1,4 @@
-import { Button, FormErrorMessage, Input, Textarea, VStack } from "@chakra-ui/react"
+import { Button, Input, Textarea, VStack } from "@chakra-ui/react"
 import { Review } from "./types/review"
 import { useTranslation } from "react-i18next"
 import ImageUploader from "../ImageUploader/ImageUploader"
@@ -54,7 +54,7 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
             <FormElement
                 label={t('text')}
                 isInvalid={errors.includes('text')}
-                errorMessage='Title is required'
+                errorMessage='Text is required'
             >
                 <Textarea
                     value={review.text}
@@ -73,15 +73,15 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
             </FormElement>
             <FormElement label='Tags'>
                 <TagInput
-                    value={review.tags}
-                    setValue={value => setReview({...review, tags: value})}
+                    tags={review.tags}
+                    setTags={value => setReview({...review, tags: value})}
                 />
             </FormElement>
             <FormElement label='Image'>
                 <ImageUploader setUrl={value => setReview({...review, imageUrl: value})}/>
             </FormElement>
             <Button type='submit' onClick={handleSubmit}>
-                Submit 
+                Submit
             </Button>
         </VStack>
     </>

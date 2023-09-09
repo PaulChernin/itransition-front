@@ -1,22 +1,39 @@
-import { Button, HStack, Input, Tag, TagLabel, VStack } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, HStack,  Tag, TagCloseButton, TagLabel, Text, VStack } from "@chakra-ui/react"
+import {  useEffect, useState } from "react"
+import SearchSelect from "../../ui/SearchSelect"
+import { getTagsByPrefix } from "./api/api"
 
 type TagInputProps = {
-    value: Array<string>,
-    setValue: (value: Array<string>) => void
+    tags: Array<string>,
+    setTags: (value: Array<string>) => void
 }
 
-const TagInput = ({ value: tags, setValue: setTags }: TagInputProps) => {
-    const [value, setValue] = useState('')
+const TagInput = ({ tags, setTags }: TagInputProps) => {
+    const [input, setInput] = useState('')
+    const [options, setOptions] = useState<Array<string>>([])
 
-    const add = () => {
-        setTags([...tags, value])
-        setValue('')
+    const add = (value: string) => {
+        if (!tags.includes(value)) {
+            setTags([...tags, value])
+        }
+        setInput('')
     }
 
     const remove = (tag: string) => {
         setTags(tags.filter(t => t !== tag))
     }
+
+    const loadOptions = async (prefix: string) => {
+        setOptions(await getTagsByPrefix(prefix))
+    }
+
+    useEffect(() => {
+        if (input) {
+            loadOptions(input)
+        } else {
+            setOptions([])
+        }
+    }, [input])
     
     return <>
         <VStack spacing={3} align='left'>
@@ -24,19 +41,24 @@ const TagInput = ({ value: tags, setValue: setTags }: TagInputProps) => {
                 {tags.map(tag =>
                     <Tag
                         key={tag}
-                        onClick={() => remove(tag)}
+                        size='lg'
                     >
                         <TagLabel>{tag}</TagLabel>
+                        <TagCloseButton onClick={() => remove(tag)} />
                     </Tag>
                 )}
+                {tags.length ||
+                    <Text>No tags selected</Text>
+                }
             </HStack>
             <HStack spacing={3}>
-                <Input
-                    value={value}
-                    onChange={e => setValue(e.target.value)}
-                    width={'200px'}
+                <SearchSelect
+                    input={input}
+                    onInput={setInput}
+                    options={options.map(tag => ({ value: tag, label: tag }))}
+                    onSelect={option => setInput(option.label)}
                 />
-                <Button onClick={add}>
+                <Button onClick={() => add(input)}>
                     Add
                 </Button>
             </HStack>
