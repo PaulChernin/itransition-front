@@ -21,7 +21,7 @@ const reviewSchema = object({
     title: string().required().trim(),
     text: string().required().trim(),
     authorScore: number().required().min(1).max(10),
-    imageUrl: string().nullable().required(),
+    imageUrl: string().defined().nullable(),
     tags: array().of(string().required()).required()
 })
 
@@ -37,6 +37,7 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
             })
             submit(result)
         } catch (e) {
+            console.log(e)
             if (e instanceof ValidationError) {
                 setErrors(e.inner.map(error => error.path!))
             }
