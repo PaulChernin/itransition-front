@@ -8,6 +8,7 @@ import { useState } from "react"
 import FormElement from "../../ui/FormElement"
 import { ValidationError, array, number, object, string } from "yup"
 import { SimpleMdeReact } from "react-simplemde-editor"
+import CategorySelect from "../CategorySelect/CategorySelect"
 
 type ReviewEditorProps = {
     defaultReview: Review,
@@ -15,6 +16,8 @@ type ReviewEditorProps = {
 }
 
 const reviewSchema = object({
+    productCategory: string().required(),
+    productName: string().required(),
     title: string().required().trim(),
     text: string().required().trim(),
     authorScore: number().required().min(1).max(10),
@@ -42,6 +45,22 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
     
     return <>
         <VStack spacing={4}>
+            <FormElement label='Product'>
+                <CategorySelect
+                    category={review.productCategory}
+                    setCategory={value => setReview({...review, productCategory: value})}
+                />
+            </FormElement>
+            <FormElement
+                label='Product name'
+                isInvalid={errors.includes('productName')}
+                errorMessage='Product name is required'
+            >
+                <Input
+                    value={review.productName}
+                    onChange={e => setReview({...review, productName: e.target.value})}
+                />
+            </FormElement>
             <FormElement
                 label={t('title')}
                 isInvalid={errors.includes('title')}
@@ -57,10 +76,6 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
                 isInvalid={errors.includes('text')}
                 errorMessage='Text is required'
             >
-                {/* <Textarea
-                    value={review.text}
-                    onChange={e => setReview({...review, text: e.target.value})}
-                /> */}
                 <SimpleMdeReact
                     value={review.text}
                     onChange={v => setReview({...review, text: v})}
