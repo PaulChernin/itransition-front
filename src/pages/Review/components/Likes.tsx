@@ -29,7 +29,7 @@ const Likes = ({ review }: LikesProps) => {
 
     useEffect(() => {
         load()
-    })
+    }, [])
 
     const handleAddLike = async () => {
         if (profile) {
