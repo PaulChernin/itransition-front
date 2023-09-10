@@ -79,7 +79,7 @@ const router = createBrowserRouter([
                     {
                         path: '/review-edit/:id',
                         element: (
-                            <ValidateParams paramName="userId">
+                            <ValidateParams paramName="id">
                                 <ReviewEditPage/>
                             </ValidateParams>
                         )

@@ -15,7 +15,7 @@ const ValidateParams = ({ paramName, children }: ValidateParamsProps) => {
             ?
             children
             :
-            <Navigate to='/404'/>
+            <Navigate to='/404' replace />
         }
     </>
 }

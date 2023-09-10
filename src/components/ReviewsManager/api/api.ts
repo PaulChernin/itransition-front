@@ -8,7 +8,7 @@ export const getReviews = async (userId: number, controls: TableControls) => {
         category: controls.category,
         sortBy: controls.sortBy
     })
-    return response as Review
+    return response as Review[]
 }
 
 export const removeReview = async (id: number) => {

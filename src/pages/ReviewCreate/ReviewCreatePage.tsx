@@ -1,6 +1,5 @@
 import ReviewEditor from "../../components/ReviewEditor/ReviewEditor"
 import { Review } from "../../components/ReviewEditor/types/review"
-import {  VStack } from "@chakra-ui/react"
 import { createReview } from "./api/api"
 // import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
@@ -27,12 +26,10 @@ const ReviewCreatePage = () => {
     }
 
     return <>
-        <VStack spacing={4} align='left'>
-            <ReviewEditor
-                defaultReview={defaultReview}
-                submit={publish}
-            />
-        </VStack>
+        <ReviewEditor
+            defaultReview={defaultReview}
+            submit={publish}
+        />
     </>
 }
 
