@@ -34,9 +34,13 @@ const ReviewsManager = ({ userId }: ReviewsProps) => {
         loadReviews(userId, controls)
     }
 
+    const openCreate = () => {
+        navigate('/review-create/' + userId)
+    }
+
     return <>
         <VStack spacing={3} alignItems='flex-start'>
-            <Button onClick={() => navigate('/review-create/' + userId)}>
+            <Button onClick={openCreate}>
                 New review
             </Button>
             <ReviewsTableControls
@@ -51,7 +55,6 @@ const ReviewsManager = ({ userId }: ReviewsProps) => {
                 :
                 <Text>No reviews yet</Text>
             }
-            
         </VStack>
     </>
 }

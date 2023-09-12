@@ -1,7 +1,7 @@
-import { Button, Table, TableContainer, Tbody, Td, Tr } from "@chakra-ui/react"
+import { Table, TableContainer, Tbody } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
-import { useTranslation } from "react-i18next"
 import { Review } from "./types/Review"
+import ReviewsTableRow from "./ReviewsTableRow"
 
 type ReviewsTableProps = {
     reviews: Array<Review>,
@@ -10,7 +10,6 @@ type ReviewsTableProps = {
 
 const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
     const navigate = useNavigate()
-    const { t } = useTranslation()
     
     const open = (id: number) => {
         navigate('/review/' + id)
@@ -25,24 +24,13 @@ const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
             <Table size='sm'>
                 <Tbody>
                     {reviews.map(review =>
-                        <Tr key={review.id}>
-                            <Td>{review.title}</Td>
-                            <Td>
-                                <Button onClick={() => open(review.id)}>
-                                    {t('open')}
-                                </Button>
-                            </Td>
-                            <Td>
-                                <Button onClick={() => edit(review.id)}>
-                                    {t('edit')}
-                                </Button>
-                            </Td>
-                            <Td>
-                                <Button onClick={() => remove(review.id)}>
-                                    {t('delete')}
-                                </Button>
-                            </Td>
-                        </Tr>
+                        <ReviewsTableRow
+                            key={review.id}
+                            review={review}
+                            open={() => open(review.id)}
+                            edit={() => edit(review.id)}
+                            remove={() => remove(review.id)}
+                        />
                     )}
                 </Tbody>
             </Table>
