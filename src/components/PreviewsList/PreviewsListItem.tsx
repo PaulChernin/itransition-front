@@ -1,47 +1,38 @@
-import { Box, Button, Heading, VStack } from "@chakra-ui/react"
+import { Button, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../ProductCard/ProductCard"
 import { Preview } from "./types/Preview"
 import { useNavigate } from "react-router-dom"
 import TagsList from "../TagsList/TagsList"
 import { useTranslation } from "react-i18next"
+import Card from "@/ui/Card"
 
-type PreviewCardProps = {
+type PreviewsListItemProps = {
     preview: Preview
 }
-
-const PreviewCard = ({ preview }: PreviewCardProps) => {
+const PreviewsListItem = ({ preview }: PreviewsListItemProps) => {
     const navigate = useNavigate()
     const { t } = useTranslation()
 
+    const openReview = () => {
+        navigate('/review/' + preview.id)
+    }
+
     return <>
-        <Box
-            as='article'
-            w='100%'
-            boxShadow='base'
-            paddingX={4}
-            paddingY={5}
-        >
+        <Card>
             <VStack spacing={3} alignItems='flex-start'>
-                <Heading
-                    as='h2'
-                    size='md'
-                >
+                <Heading as='h2' size='md'>
                     {preview.title}
                 </Heading>
                 <ProductCard product={preview.product} />
                 {preview.tags.length &&
-                    <TagsList
-                        tags={preview.tags}
-                    />
+                    <TagsList tags={preview.tags} />
                 }
-                <Button
-                    onClick={() => navigate('/review/' + preview.id)}
-                >
+                <Button onClick={openReview}>
                     {t('read')}
                 </Button>
             </VStack>
-        </Box>
+        </Card>
     </>
 }
 
-export default PreviewCard
+export default PreviewsListItem
