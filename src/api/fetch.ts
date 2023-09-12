@@ -2,14 +2,26 @@ import { AxiosError, isAxiosError } from "axios"
 import axios from "./axios"
 import router from "../router/router"
 
-const handleError = (error: AxiosError) => {
+const redirect404 = () => {
+    router.navigate('/404', { replace: true })
+}
+
+const handleAxiosError = (error: AxiosError) => {
     switch (error.response?.status) {
         case 404:
-            router.navigate('/404', { replace: true })
+            redirect404()
             break
         case 403:
-            router.navigate('/404', { replace: true })
+            redirect404()
             break
+    }
+}
+
+const handleError = (error: unknown) => {
+    if (isAxiosError(error)) {
+        handleAxiosError(error)
+    } else {
+        throw error
     }
 }
 
@@ -18,9 +30,7 @@ const fetch = async (path: string, payload?: object) => {
         const response = await axios.post(path, payload)
         return response.data
     } catch (e) {
-        if (isAxiosError(e)) {
-            handleError(e)
-        }
+        handleError(e)
     }
 }
 
