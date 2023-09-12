@@ -1,6 +1,6 @@
-import { Box, useColorModeValue } from "@chakra-ui/react"
 import { Product } from "./types/Product"
 import { useTranslation } from "react-i18next"
+import CardContrast from "@/ui/CardContrast"
 
 type ProductCardProps = {
     product: Product
@@ -11,12 +11,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const categoryName = t('categories.' + product.categoryName)
 
     return <>
-        <Box
-            padding={5}
-            bgColor={useColorModeValue('gray.100', 'gray.900')}
-        >
+        <CardContrast>
             <div>{categoryName}: {product.name}</div>
-        </Box>
+        </CardContrast>
     </>
 }
 
