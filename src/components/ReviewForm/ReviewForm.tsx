@@ -10,7 +10,7 @@ import { ValidationError, array, number, object, string } from "yup"
 import { SimpleMdeReact } from "react-simplemde-editor"
 import CategorySelect from "../CategorySelect/CategorySelect"
 
-type ReviewEditorProps = {
+type ReviewFormProps = {
     defaultReview: Review,
     submit: (review: Review) => void
 }
@@ -25,7 +25,7 @@ const reviewSchema = object({
     tags: array().of(string().required()).required()
 })
 
-const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
+const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
     const { t } = useTranslation()
     const [review, setReview] = useState(defaultReview)
     const [errors, setErrors] = useState<Array<string>>([])
@@ -108,4 +108,4 @@ const ReviewEditor = ({ defaultReview, submit }: ReviewEditorProps) => {
     </>
 }
 
-export default ReviewEditor
+export default ReviewForm
