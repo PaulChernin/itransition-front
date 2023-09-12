@@ -9,21 +9,24 @@ type LikesProps = {
     review: Review
 }
 
+// TODO: переименовать
 const Likes = ({ review }: LikesProps) => {
     const [isLiked, setIsLiked] = useState(false)
     const [count, setCount] = useState(0)
     const { profile } = useProfileStore()
 
+    const loadLikeCount = async (reviewId: number) => {
+        setCount(await getLikeCount(reviewId))
+    }
+
+    const loadLike = async (reviewId: number, profileId: number) => {
+        setIsLiked(await getLike(reviewId, profileId))
+    }
+
     const load = () => {
-        getLikeCount(review.id)
-            .then((count: number) => {
-                setCount(count)
-            })
+        loadLikeCount(review.id)
         if (profile) {
-            getLike(review.id, profile.userId)
-                .then(userLike => {
-                    setIsLiked(userLike)
-                })
+            loadLike(review.id, profile.userId)
         }
     }
 

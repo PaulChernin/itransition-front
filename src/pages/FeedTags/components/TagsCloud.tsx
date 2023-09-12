@@ -5,11 +5,12 @@ import { getPopularTags } from '../api/api'
 const TagsCloud = () => {
     const [tags, setTags] = useState<Array<string>>([])
 
+    const loadTags = async () => {
+        setTags(await getPopularTags())
+    }
+
     useEffect(() => {
-        getPopularTags()
-            .then(response => {
-                setTags(response)
-            })
+        loadTags()
     }, [])
     
     return <>

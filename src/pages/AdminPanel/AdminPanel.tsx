@@ -7,11 +7,12 @@ import { User } from "./types/User"
 const AdminPanelPage = () => {
     const [users, setUsers] = useState<Array<User>>([])
 
+    const loadUsers = async () => {
+        setUsers(await getUsers())
+    }
+
     useEffect(() => {
-        getUsers()
-            .then(users => {
-                setUsers(users)
-            })
+        loadUsers()
     }, [])
 
     return <>

@@ -6,12 +6,13 @@ import TagsCloud from "./components/TagsCloud"
 
 const FeedTagsPage = () => {
     const [previews, setPreviews] = useState<Array<Preview>>([])
+
+    const load = async () => {
+        setPreviews(await getLatestReviews())
+    }
     
     useEffect(() => {
-        getLatestReviews()
-            .then(reviews => {
-                setPreviews(reviews)
-            })
+        load()
     }, [])
     
     return <>

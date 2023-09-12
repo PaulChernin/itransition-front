@@ -5,27 +5,24 @@ import { createComment, getComments } from "./api/api"
 import CommentSender from "./components/CommentSender"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
 import { Text } from "@chakra-ui/react"
-import { useNumberParam } from "../../hooks/useNumberParam"
+import { useNumberParam } from "@/hooks/useNumberParam"
 
 const CommentsPage = () => {
     const reviewId = useNumberParam('reviewId')!
     const [comments, setComments] = useState<Array<Comment>>([])
     const { profile } = useProfileStore()
 
-    const update = () => {
-        getComments(reviewId)
-        .then(comments => {
-            setComments(comments)
-        })
+    const loadComments = async (reviewId: number) => {
+        setComments(await getComments(reviewId))
     }
     
     useEffect(() => {
-        update()
+        loadComments(reviewId)
     }, [reviewId])
 
     const send = async (text: string) => {
         await createComment(reviewId, text, profile!.userId)
-        update()
+        loadComments(reviewId)
     }
 
     return <>

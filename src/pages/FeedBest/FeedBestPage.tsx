@@ -5,12 +5,13 @@ import PreviewsList from "../../components/PreviewsList/PreviewsList"
 
 const FeedBestPage = () => {
     const [previews, setPreviews] = useState<Array<Preview>>([])
+
+    const load = async () => {
+        setPreviews(await getBestReviews())
+    }
     
     useEffect(() => {
-        getBestReviews()
-            .then(reviews => {
-                setPreviews(reviews)
-            })
+        load()
     }, [])
     
     return <>
