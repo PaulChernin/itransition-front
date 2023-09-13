@@ -1,11 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useProfileStore } from "../hooks/profile/useProfileStore"
 
+type ProtectedRoutesProps = {
+    requireAdmin?: boolean
+}
 
-const ProtectedRoutes = () => {
+const ProtectedRoutes = ({ requireAdmin }: ProtectedRoutesProps) => {
     const { profile } = useProfileStore()
     
-    if (profile) {
+    if (profile && (!requireAdmin || profile.isAdmin)) {
         return <Outlet/>
     }
 
