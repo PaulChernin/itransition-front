@@ -2,7 +2,7 @@ import { Box, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../../../components/ProductCard/ProductCard"
 import { Review } from "./types/Review"
 import TagsList from "../../../ui/TagsList"
-import { useTranslation } from "react-i18next"
+// import { useTranslation } from "react-i18next"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 import ArticleImage from "./ArticleImage"
 import ScoreText from "./ScoreText"
@@ -13,7 +13,7 @@ type ReviewArticleProps = {
 }
 
 const ReviewArticle = ({ review }: ReviewArticleProps) => {
-    const { t } = useTranslation()
+    // const { t } = useTranslation()
 
     return <>
         <VStack spacing={4} align='left'>

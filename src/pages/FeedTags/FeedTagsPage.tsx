@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Preview } from "../../components/PreviewsList/types/Preview"
 import { getReviewsByTag } from "./api/api"
 import PreviewsList from "../../components/PreviewsList/PreviewsList"
@@ -10,10 +10,6 @@ const FeedTagsPage = () => {
     const load = async (tag: string) => {
         setPreviews(await getReviewsByTag(tag))
     }
-    
-    // useEffect(() => {
-    //     load()
-    // }, [])
     
     return <>
         <TagsCloud select={load} />

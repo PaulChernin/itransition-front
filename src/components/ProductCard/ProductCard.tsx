@@ -1,7 +1,6 @@
 import { Product } from "./types/Product"
 import { useTranslation } from "react-i18next"
 import CardContrast from "@/ui/CardContrast"
-import StarRatings from 'react-star-ratings'
 import { createRating, getAverageRating } from "./api/api"
 import { useEffect, useState } from "react"
 import { Flex, Text } from "@chakra-ui/react"
