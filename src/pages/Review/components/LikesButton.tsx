@@ -1,16 +1,15 @@
 import { Button } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { addLike, getLike, getLikeCount } from "./api.ts/api"
+import { addLike, getLike, getLikeCount } from "./api/api"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { useProfileStore } from "../../../hooks/profile/useProfileStore"
 import { Review } from "./types/Review"
 
-type LikesProps = {
+type LikesButtonProps = {
     review: Review
 }
 
-// TODO: переименовать
-const Likes = ({ review }: LikesProps) => {
+const LikesButton = ({ review }: LikesButtonProps) => {
     const [isLiked, setIsLiked] = useState(false)
     const [count, setCount] = useState(0)
     const { profile } = useProfileStore()
@@ -51,4 +50,4 @@ const Likes = ({ review }: LikesProps) => {
     </>
 }
 
-export default Likes
+export default LikesButton

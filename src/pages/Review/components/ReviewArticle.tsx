@@ -1,19 +1,18 @@
-import { Box, Button, Flex, Heading, VStack } from "@chakra-ui/react"
+import { Box, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../../../components/ProductCard/ProductCard"
 import { Review } from "./types/Review"
-import { useNavigate } from "react-router-dom"
 import TagsList from "../../../ui/TagsList"
-import Likes from "./Likes"
 import { useTranslation } from "react-i18next"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
-import Image from "./Image"
+import ArticleImage from "./ArticleImage"
+import ScoreText from "./ScoreText"
+import ReviewArticleFooter from "./ReviewArticleFooter"
 
 type ReviewArticleProps = {
     review: Review
 }
 
 const ReviewArticle = ({ review }: ReviewArticleProps) => {
-    const navigate = useNavigate()
     const { t } = useTranslation()
 
     return <>
@@ -23,20 +22,11 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
             </Heading>
             <Box>Author: {review.author.nick}</Box>
             <ProductCard product={review.product} />
-            <Image url={review.imageUrl} />
+            <ArticleImage url={review.imageUrl} />
             <ReactMarkdown children={review.text} />
-            <Box fontSize='2em' // TODO: выделить компонент
-            >
-                {review.authorsScore} / 10
-            </Box>
+            <ScoreText score={review.authorsScore} />
             <TagsList tags={review.tags} />
-            <Flex alignItems='center' gap={5} // TODO: выделить компонент футера
-            >
-                <Likes review={review}/>
-                <Button onClick={() => navigate('/comments/' + review.id)}>
-                    {t('comments')}
-                </Button>
-            </Flex>
+            <ReviewArticleFooter review={review} />
         </VStack>
     </>
 }

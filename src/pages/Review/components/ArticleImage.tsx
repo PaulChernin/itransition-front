@@ -1,10 +1,10 @@
 import { Image as ChakraImage } from "@chakra-ui/react"
 
-type ImageProps = {
+type ArticleImageProps = {
     url: string | null
 }
 
-const Image = ({ url }: ImageProps) => {
+const ArticleImage = ({ url }: ArticleImageProps) => {
     return <>
         {url &&
             <ChakraImage
@@ -17,4 +17,4 @@ const Image = ({ url }: ImageProps) => {
     </>
 }
 
-export default Image
+export default ArticleImage
