@@ -2,7 +2,7 @@ import { Button, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../ProductCard/ProductCard"
 import { Preview } from "./types/Preview"
 import { useNavigate } from "react-router-dom"
-import TagsList from "../TagsList/TagsList"
+import TagsList from "../../ui/TagsList"
 import { useTranslation } from "react-i18next"
 import Card from "@/ui/Card"
 
