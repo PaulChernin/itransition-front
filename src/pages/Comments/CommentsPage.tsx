@@ -15,9 +15,11 @@ const CommentsPage = () => {
     const loadComments = async (reviewId: number) => {
         setComments(await getComments(reviewId))
     }
-    
+
     useEffect(() => {
         loadComments(reviewId)
+        const interval = setInterval(() => {loadComments(reviewId)}, 5000)
+        return () => {clearInterval(interval)}
     }, [reviewId])
 
     const send = async (text: string) => {
