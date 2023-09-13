@@ -1,6 +1,6 @@
 import { Button, HStack,  Tag, TagCloseButton, TagLabel, Text, VStack } from "@chakra-ui/react"
 import {  useEffect, useState } from "react"
-import SearchSelect from "../../ui/SearchSelect"
+import SearchSelect from "../../ui/Select/SearchSelect"
 import { getTagsByPrefix } from "./api/api"
 
 type TagInputProps = {

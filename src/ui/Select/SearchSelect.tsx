@@ -1,9 +1,6 @@
-import {  Box, Input, Popover, PopoverBody, PopoverContent, PopoverTrigger, VStack, useDisclosure } from "@chakra-ui/react"
-
-type Option<T> = {
-    label: string,
-    value: T
-}
+import { Input, Popover, PopoverBody, PopoverContent, PopoverTrigger, useDisclosure } from "@chakra-ui/react"
+import type { Option } from './types/option.ts'
+import SelectOptionsList from "./components/SelectOptionsList.tsx"
 
 type SearchSelectProps<T> = {
     input: string,
@@ -26,7 +23,7 @@ const SearchSelect = <T extends number | string>({ input, onInput, options, onSe
                 <Input
                     value={input}
                     onChange={e => onInput(e.target.value)}
-                    width={'200px'}
+                    width={'200px'} // TODO: вынести в prop
                     onFocus={onOpen}
                     onBlur={onClose}
                 />
@@ -35,23 +32,13 @@ const SearchSelect = <T extends number | string>({ input, onInput, options, onSe
                 width={'200px'}
             >
                 <PopoverBody>
-                    <VStack>
-                        {options.map(option =>
-                            <Box
-                                key={option.value}
-                                onClick={() => onSelect(option)}
-                                width='100%'
-                                _hover={{ bgColor: 'gray.100' }} // TODO: add dark mode
-                                cursor='pointer'
-                            >
-                                {option.label}
-                            </Box>
-                        )}
-                    </VStack>
+                    <SelectOptionsList
+                        options={options}
+                        select={onSelect}
+                    />
                 </PopoverBody>
             </PopoverContent>
         </Popover>
-
     </>
 }
 

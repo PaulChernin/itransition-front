@@ -11,6 +11,8 @@ type SelectProps<T> = {
     setValue: (value: T) => void
 }
 
+// TODO: отказаться от chakra-react-select
+// использовать те же компоненты что и в SearchSelect
 const Select = <T,>({ options, value, setValue }: SelectProps<T>) => {
     return <ChakraSelect
         options={options}
