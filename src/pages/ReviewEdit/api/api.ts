@@ -1,5 +1,5 @@
+import { Review } from "@/components/ReviewForm/types/review"
 import fetch from "../../../api/fetch"
-import { Review } from "../../../components/ReviewEditor/types/review"
 
 export const updateReview = async (review: Review, id: number) => {
     await fetch('/review/update', { // TODO

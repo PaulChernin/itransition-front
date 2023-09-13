@@ -1,9 +1,9 @@
-import ReviewEditor from "../../components/ReviewEditor/ReviewEditor"
-import { Review } from "../../components/ReviewEditor/types/review"
 import { useNavigate } from "react-router-dom"
 import { useNumberParam } from "../../hooks/useNumberParam"
 import { getReview, updateReview } from "./api/api"
 import { useEffect, useState } from "react"
+import ReviewForm from "@/components/ReviewForm/ReviewForm"
+import { Review } from "@/components/ReviewForm/types/review"
 
 const ReviewCreatePage = () => {
     const id = useNumberParam('id')!
@@ -24,7 +24,7 @@ const ReviewCreatePage = () => {
 
     return <>
         {oldReview &&
-            <ReviewEditor
+            <ReviewForm
                 defaultReview={oldReview}
                 submit={publish}
             />

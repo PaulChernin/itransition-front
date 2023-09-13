@@ -1,9 +1,9 @@
-import ReviewEditor from "../../components/ReviewEditor/ReviewEditor"
-import { Review } from "../../components/ReviewEditor/types/review"
 import { createReview } from "./api/api"
 // import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { useNumberParam } from "../../hooks/useNumberParam"
+import ReviewForm from "@/components/ReviewForm/ReviewForm"
+import { Review } from "@/components/ReviewForm/types/review"
 
 const defaultReview: Review = {
     productCategory: 'book',
@@ -26,7 +26,7 @@ const ReviewCreatePage = () => {
     }
 
     return <>
-        <ReviewEditor
+        <ReviewForm
             defaultReview={defaultReview}
             submit={publish}
         />
