@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next"
-import Select from "../../ui/Select"
+import Select from "../../ui/Select/Select"
 
 type SortSelectProps = {
     sort: string,
     setSort: (value: string) => void
 }
 
-const categories = ['date', 'name']
+const categories = ['date', 'name'] // TODO: в отдельный файл
 
+// TODO: переименовать в SortTypeSelect
 const SortSelect = ({ sort, setSort }: SortSelectProps) => {
     const { t } = useTranslation()
 
