@@ -10,6 +10,11 @@ const CommentSender = ({ send }: CommentSenderProps) => {
     const [text, setText] = useState('')
     const { t } = useTranslation()
 
+    const handleSend = () => {
+        send(text)
+        setText('')
+    }
+
     return <>
         <VStack
             spacing={3}
@@ -21,9 +26,7 @@ const CommentSender = ({ send }: CommentSenderProps) => {
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
-            <Button
-                onClick={() => send(text)}
-            >
+            <Button onClick={handleSend}>
                 {t('send')}
             </Button>
         </VStack>
