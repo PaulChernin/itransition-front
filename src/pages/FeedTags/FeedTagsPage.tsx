@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react"
 import { Preview } from "../../components/PreviewsList/types/Preview"
-import { getLatestReviews } from "./api/api"
+import { getReviewsByTag } from "./api/api"
 import PreviewsList from "../../components/PreviewsList/PreviewsList"
 import TagsCloud from "./components/TagsCloud"
 
 const FeedTagsPage = () => {
     const [previews, setPreviews] = useState<Array<Preview>>([])
 
-    const load = async () => {
-        setPreviews(await getLatestReviews())
+    const load = async (tag: string) => {
+        setPreviews(await getReviewsByTag(tag))
     }
     
-    useEffect(() => {
-        load()
-    }, [])
+    // useEffect(() => {
+    //     load()
+    // }, [])
     
     return <>
-        <TagsCloud/>
+        <TagsCloud select={load} />
         <PreviewsList previews={previews} />
     </>
 }
