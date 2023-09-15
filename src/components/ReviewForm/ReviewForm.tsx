@@ -45,15 +45,15 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
     }
     
     return <>
-        <VStack spacing={4}>
-            <FormElement label='Product'>
+        <VStack spacing={4} align='flex-start'>
+            <FormElement label='What is your review about?'>
                 <CategorySelect
                     category={review.productCategory}
                     setCategory={value => setReview({...review, productCategory: value})}
                 />
             </FormElement>
             <FormElement
-                label='Product name'
+                label='Provide its name:'
                 isInvalid={errors.includes('productName')}
                 errorMessage='Product name is required'
             >
@@ -63,7 +63,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                 />
             </FormElement>
             <FormElement
-                label={t('title')}
+                label={t('Review\'s title:')}
                 isInvalid={errors.includes('title')}
                 errorMessage='Title is required'
             >
@@ -83,7 +83,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                 />
             </FormElement>
             <FormElement
-                label={t('score')}
+                label='Total score from 1 to 10:'
                 isInvalid={errors.includes('authorScore')}
                 errorMessage='Provide score from 1 to 10'
             >
@@ -92,13 +92,13 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                     setValue={value => setReview({...review, authorScore: value})}
                 />
             </FormElement>
-            <FormElement label='Tags'>
+            <FormElement label='Tags:'>
                 <TagInput
                     tags={review.tags}
                     setTags={value => setReview({...review, tags: value})}
                 />
             </FormElement>
-            <FormElement label='Image'>
+            <FormElement label='Image (otpional):'>
                 <ImageUploader setUrl={value => setReview({...review, imageUrl: value})}/>
             </FormElement>
             <Button type='submit' onClick={handleSubmit}>
