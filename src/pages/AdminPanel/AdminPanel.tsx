@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getUsers } from "./api/api"
 import { Link } from "react-router-dom"
 import { Heading, VStack } from "@chakra-ui/react"
-import { User } from "./types/User"
+import { User } from "@/types/User"
 
 const AdminPanelPage = () => {
     const [users, setUsers] = useState<Array<User>>([])

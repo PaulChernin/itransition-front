@@ -28,7 +28,6 @@ const exchangeTokens = async (silent: string) => {
 
 export const handleSilentToken = async (silent: string) => {
   const { user, token } = await exchangeTokens(silent)
-  const jwt: string = token
-  saveToken(jwt)
+  saveToken(token)
   return user
 }
