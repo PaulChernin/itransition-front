@@ -98,8 +98,11 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                     setTags={value => setReview({...review, tags: value})}
                 />
             </FormElement>
-            <FormElement label='Image (otpional):'>
-                <ImageUploader setUrl={value => setReview({...review, imageUrl: value})}/>
+            <FormElement label='Image (optional):'>
+                <ImageUploader
+                    url={review.imageUrl}
+                    setUrl={value => setReview({...review, imageUrl: value})}
+                />
             </FormElement>
             <Button type='submit' onClick={handleSubmit}>
                 Submit
