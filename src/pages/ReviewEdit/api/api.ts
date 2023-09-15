@@ -18,7 +18,7 @@ export const getReview = async (id: number) => {
     const response = await fetch('/review/get/byId', {
         id: id
     })
-    return {
+    return { // TODO: заменить на ReviewForm
         productCategory: response.product.categoryName,
         productName: response.product.name,
         title: response.title,

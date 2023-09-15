@@ -1,6 +1,6 @@
-export type Comment = {
+export type Comment = { // перенести файл
     id: number,
-    user: {
+    user: { // использовать тип Profile
         id: number,
         nick: string
     },

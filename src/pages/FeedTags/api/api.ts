@@ -3,13 +3,13 @@ import { Review } from "../../Review/components/types/Review"
 import { Tag } from "../types/tag"
 
 export const getReviewsByTag = async (tag: string) => {
-    const response = await fetch('/review/get/byTag', {
+    const response: Array<Review> = await fetch('/review/get/byTag', {
         tag: tag
     })
-    return response as Array<Review>
+    return response
 }
 
 export const getPopularTags = async () => {
-    const response = await fetch('/tag/get/popular')
-    return response as Array<Tag>
+    const response: Array<Tag> = await fetch('/tag/get/popular')
+    return response
 }

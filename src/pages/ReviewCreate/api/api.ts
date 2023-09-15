@@ -1,8 +1,12 @@
 import { Review } from "@/components/ReviewForm/types/review"
 import fetch from "../../../api/fetch"
 
+type CreateReviewResponse = {
+    id: number
+}
+
 export const createReview = async (review: Review, authorId: number) => {
-    const response = await fetch('/review/create', { // TODO
+    const response: CreateReviewResponse = await fetch('/review/create', { // TODO
         authorId: authorId,
         category: review.productCategory,
         productName: review.productCategory,
@@ -12,5 +16,5 @@ export const createReview = async (review: Review, authorId: number) => {
         imageUrl: review.imageUrl,
         tags: review.tags
     })
-    return response.id as number
+    return response.id
 }

@@ -7,8 +7,12 @@ const createRating = async (productId: number, rating: number) => {
     })
 }
 
+type GetAverageRatingResponse = {
+    average: number
+}
+
 const getAverageRating = async (productId: number) => {
-    const response = await fetch('/rating/get/average', {
+    const response: GetAverageRatingResponse = await fetch('/rating/get/average', {
         productId: productId
     })
     return response.average
