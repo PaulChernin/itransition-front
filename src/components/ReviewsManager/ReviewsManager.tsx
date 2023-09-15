@@ -39,7 +39,7 @@ const ReviewsManager = ({ userId }: ReviewsProps) => {
     }
 
     return <>
-        <VStack spacing={3} alignItems='flex-start'>
+        <VStack spacing={4} alignItems='flex-start'>
             <Button onClick={openCreate}>
                 New review
             </Button>

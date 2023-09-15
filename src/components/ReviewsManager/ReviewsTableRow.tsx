@@ -1,6 +1,7 @@
 import { Button, Td, Tr } from "@chakra-ui/react"
 import { Review } from "./types/Review"
 import { useTranslation } from "react-i18next"
+import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 
 type ReviewsTableRowProps = {
     review: Review,
@@ -19,10 +20,10 @@ const ReviewsTableRow = ({ review, open, edit, remove }: ReviewsTableRowProps) =
                 <Button onClick={open}>{t('open')}</Button>
             </Td>
             <Td>
-                <Button onClick={edit}>{t('edit')}</Button>
+                <Button onClick={edit}><AiFillEdit/></Button>
             </Td>
             <Td>
-                <Button onClick={remove}>{t('delete')}</Button>
+                <Button onClick={remove}><AiFillDelete/></Button>
             </Td>
         </Tr>
     </>

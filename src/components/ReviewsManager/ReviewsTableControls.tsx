@@ -10,17 +10,21 @@ type ReviewsTableControlsProps = {
 
 const ReviewsTableControls = ({ controls, setControls }: ReviewsTableControlsProps) => {
     return <>
-        <HStack>
-            <Text>Category:</Text>
-            <CategorySelect // TODO: дублирование
-                category={controls.category}
-                setCategory={value => setControls({...controls, category: value})}
-            />
-            <Text>Sort by:</Text>
-            <SortSelect
-                sort={controls.sortBy}
-                setSort={value => setControls({...controls, sortBy: value})}
-            />
+        <HStack wrap='wrap'>
+            <HStack>
+                <Text>Category:</Text>
+                <CategorySelect // TODO: дублирование
+                    category={controls.category}
+                    setCategory={value => setControls({...controls, category: value})}
+                />
+            </HStack>
+            <HStack>
+                <Text>Sort by:</Text>
+                <SortSelect
+                    sort={controls.sortBy}
+                    setSort={value => setControls({...controls, sortBy: value})}
+                />
+            </HStack>
         </HStack>
     </>
 }

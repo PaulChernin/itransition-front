@@ -6,7 +6,7 @@ const UserReviewsPage = () => {
     const userId = useNumberParam('userId')!
     
     return <>
-        <Heading as='h1' size='lg'>
+        <Heading as='h1' size='lg' marginBottom={4}>
             User reviews:
         </Heading>
         <ReviewsManager userId={userId} />
