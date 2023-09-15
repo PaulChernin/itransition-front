@@ -12,7 +12,7 @@ const ReviewsTableControls = ({ controls, setControls }: ReviewsTableControlsPro
     return <>
         <HStack>
             <Text>Category:</Text>
-            <CategorySelect
+            <CategorySelect // TODO: дублирование
                 category={controls.category}
                 setCategory={value => setControls({...controls, category: value})}
             />

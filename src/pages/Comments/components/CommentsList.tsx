@@ -15,7 +15,7 @@ const CommentsList = ({ comments }: CommentsListProps) => {
                     <CommentCard
                         key={comment.id}
                         comment={comment}
-                    />    
+                    />
                 )}
             </VStack>
             :

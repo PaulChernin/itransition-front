@@ -7,6 +7,7 @@ type ValidateParamsProps = {
     paramName: string
 }
 
+// TODO: валидировать по предоставленной схеме и прокидывать вниз как props
 const ValidateParams = ({ paramName, children }: ValidateParamsProps) => {
     const value = useNumberParam(paramName)
 

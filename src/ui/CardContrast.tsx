@@ -10,6 +10,7 @@ const CardContrast = ({ children }: CardProps) => {
         <Box
             padding={5}
             bgColor={useColorModeValue('gray.100', 'gray.900')}
+            width='100%'
         >
             { children }
         </Box>
