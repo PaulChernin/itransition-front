@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { addLike, getLike, getLikeCount } from "./api/api"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { useProfileStore } from "../../../hooks/profile/useProfileStore"
-import { Review } from "./types/Review"
+import { Review } from "@/types/Review"
 
 type LikesButtonProps = {
     review: Review

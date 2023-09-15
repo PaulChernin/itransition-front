@@ -1,8 +1,8 @@
 import { Button, Flex } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import Likes from "./LikesButton"
-import { Review } from "./types/Review"
 import { useTranslation } from "react-i18next"
+import { Review } from "@/types/Review"
 
 type ReviewArticleFooterProps = {
     review: Review

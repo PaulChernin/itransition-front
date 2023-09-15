@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { Preview } from "../../components/PreviewsList/types/Preview"
 import { getReviewsByTag } from "./api/api"
 import PreviewsList from "../../components/PreviewsList/PreviewsList"
 import TagsCloud from "./components/TagsCloud"
+import { Review } from "@/types/Review"
 
 const FeedTagsPage = () => {
-    const [previews, setPreviews] = useState<Array<Preview>>([])
+    const [previews, setPreviews] = useState<Array<Review>>([])
 
     const load = async (tag: string) => {
         setPreviews(await getReviewsByTag(tag))

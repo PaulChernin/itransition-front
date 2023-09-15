@@ -1,9 +1,9 @@
+import { Review } from "@/types/Review"
 import fetch from "../../../api/fetch"
-import { Review } from "../types/Review"
 import { TableControls } from "../types/TableControls"
 
 export const getReviews = async (userId: number, controls: TableControls) => {
-    const response: Review[] = await fetch('/review/get/byUser', { // использовать тип Review
+    const response: Review[] = await fetch('/review/get/byUser', {
         userId: userId,
         category: controls.category,
         sortBy: controls.sortBy

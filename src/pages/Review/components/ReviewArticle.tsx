@@ -1,12 +1,12 @@
 import { Box, Heading, VStack } from "@chakra-ui/react"
 import ProductCard from "../../../components/ProductCard/ProductCard"
-import { Review } from "./types/Review"
 import TagsList from "../../../ui/TagsList"
 // import { useTranslation } from "react-i18next"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 import ArticleImage from "./ArticleImage"
 import ScoreText from "./ScoreText"
 import ReviewArticleFooter from "./ReviewArticleFooter"
+import { Review } from "@/types/Review"
 
 type ReviewArticleProps = {
     review: Review

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { Preview } from "../../components/PreviewsList/types/Preview"
 import { getBestReviews } from "./api/api"
 import PreviewsList from "../../components/PreviewsList/PreviewsList"
+import { Review } from "@/types/Review"
 
 const FeedBestPage = () => {
-    const [previews, setPreviews] = useState<Array<Preview>>([])
+    const [previews, setPreviews] = useState<Array<Review>>([])
 
     const load = async () => {
         setPreviews(await getBestReviews())

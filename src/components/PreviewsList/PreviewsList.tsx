@@ -1,9 +1,9 @@
 import { VStack } from "@chakra-ui/react"
 import PreviewsListItem from "./PreviewsListItem"
-import { Preview } from "./types/Preview"
+import { Review } from "@/types/Review"
 
 type PreviewsListProps = {
-    previews: Array<Preview>
+    previews: Array<Review>
 }
 
 const PreviewsList = ({ previews }: PreviewsListProps) => {

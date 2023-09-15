@@ -5,7 +5,7 @@ export const getLike = async (reviewId: number, userId: number) => {
         userId: userId,
         reviewId: reviewId
     })
-    return response.userLike as boolean
+    return response.userLike as boolean // TODO: убрать as
 }
 
 export const addLike = async (reviewId: number, userId: number) => {

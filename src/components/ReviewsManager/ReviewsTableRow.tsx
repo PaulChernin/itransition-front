@@ -1,5 +1,5 @@
+import { Review } from "@/types/Review"
 import { Button, Td, Tr } from "@chakra-ui/react"
-import { Review } from "./types/Review"
 import { useTranslation } from "react-i18next"
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
 

@@ -1,8 +1,8 @@
 import ReviewArticle from "./components/ReviewArticle"
-import { Review } from "./components/types/Review"
 import { useEffect, useState } from "react"
 import { useNumberParam } from "../../hooks/useNumberParam"
 import { getReview } from "./api/api"
+import { Review } from "@/types/Review"
 
 const ReviewPage = () => {
     const id = useNumberParam('id')!

@@ -1,4 +1,4 @@
-export type Review = {
+export type Review = { // TODO: переименовать в ReviewForm
     productName: string,
     productCategory: string,
     title: string,

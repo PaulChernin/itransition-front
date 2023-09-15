@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import ReviewsTable from "./ReviewsTable"
-import { Review } from "./types/Review"
 import ReviewsTableControls from "./ReviewsTableControls"
 import { TableControls } from "./types/TableControls"
 import { getReviews, removeReview } from "./api/api"
 import { useNavigate } from "react-router-dom"
 import { Button, Text, VStack } from "@chakra-ui/react"
+import { Review } from "@/types/Review"
 
 type ReviewsProps = {
     userId: number

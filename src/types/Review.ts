@@ -1,13 +1,11 @@
-import { Product } from "../../../../components/ProductCard/types/Product"
+import { Product } from "./Product"
+import { User } from "./User"
 
 export type Review = {
     id: number,
     title: string,
     text: string,
-    author: {
-        id: number,
-        nick: string
-    },
+    author: User,
     product: Product,
     authorsScore: number,
     tags: Array<string>,

@@ -1,7 +1,7 @@
 import { Table, TableContainer, Tbody } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
-import { Review } from "./types/Review"
 import ReviewsTableRow from "./ReviewsTableRow"
+import { Review } from "@/types/Review"
 
 type ReviewsTableProps = {
     reviews: Array<Review>,
