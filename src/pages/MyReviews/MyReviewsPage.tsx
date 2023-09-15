@@ -9,7 +9,7 @@ const MyReviewsPage = () => {
         <Heading as='h1' size='lg' marginBottom={4}>
             My reviews:
         </Heading>
-        <ReviewsManager userId={profile.userId} />
+        <ReviewsManager userId={profile.id} />
     </>
 }
 

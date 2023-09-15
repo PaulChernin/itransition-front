@@ -25,12 +25,12 @@ const Menu = () => {
                 <LanguageSwitcher/>
                 <ThemeModeSwitcher/>
                 <LoginButton/>
-                {profile?.isAdmin &&
+                {profile?.isAdmin && // TODO: вынести в компонент
                     <Button onClick={() => navigate('/admin')}>
                         Users list
                     </Button>
                 }
-                {profile &&
+                {profile && // TODO:
                     <Button onClick={() => navigate('my-reviews')}>
                         My reviews
                     </Button>

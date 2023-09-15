@@ -6,11 +6,6 @@ const LoginButton = () => {
     const { profile, setProfile } = useProfileStore()
     
     const login = async () => {
-        // setProfile({
-        //     userId: 3,
-        //     userNick: 'Joe',
-        //     isAdmin: true
-        // })
         redirectAuth()
     }
 

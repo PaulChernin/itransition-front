@@ -25,7 +25,7 @@ const LikesButton = ({ review }: LikesButtonProps) => {
     const load = () => {
         loadLikeCount(review.id)
         if (profile) {
-            loadLike(review.id, profile.userId)
+            loadLike(review.id, profile.id)
         }
     }
 
@@ -35,7 +35,7 @@ const LikesButton = ({ review }: LikesButtonProps) => {
 
     const handleAddLike = async () => {
         if (profile) {
-            await addLike(review.id, profile.userId)
+            await addLike(review.id, profile.id)
             load()
         }
     }

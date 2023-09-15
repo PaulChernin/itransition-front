@@ -1,5 +1,6 @@
 import { Config, Connect} from '@vkontakte/superappkit'
 import axios from '../api/axios'
+import { User } from '@/types/User'
 
 Config.init({
   appId: 51736723
@@ -13,14 +14,8 @@ const saveToken = (token: string) => {
   localStorage.setItem('token', token)
 }
 
-type dbProfile = {
-    id: number,
-    nick: string,
-    isAdmin: boolean
-}
-
 type ExchangeTokensResponse = {
-  user: dbProfile,
+  user: User,
   token: string
 }
 
@@ -31,17 +26,9 @@ const exchangeTokens = async (silent: string) => {
   return response.data as ExchangeTokensResponse
 }
 
-const mapProfile = (profile: dbProfile) => {
-  return {
-    userId: profile.id,
-    userNick: profile.nick,
-    isAdmin: profile.isAdmin
-  }
-}
-
 export const handleSilentToken = async (silent: string) => {
   const { user, token } = await exchangeTokens(silent)
   const jwt: string = token
   saveToken(jwt)
-  return mapProfile(user)
+  return user
 }

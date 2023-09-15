@@ -1,12 +1,12 @@
+import { User } from "@/types/User"
 import { create } from "zustand"
-import { Profile } from "./Profile"
 
-const getStorageProfile = (): Profile | null => {
+const getStorageProfile = (): User | null => {
     const str = sessionStorage.getItem('profile')
     return str && JSON.parse(str)
 }
 
-const saveStorageProfile = (profile: Profile | null) => {
+const saveStorageProfile = (profile: User | null) => {
     if (!profile) {
         sessionStorage.removeItem('profile')
         return
@@ -16,8 +16,8 @@ const saveStorageProfile = (profile: Profile | null) => {
 }
 
 interface ProfileState {
-    profile: Profile | null,
-    setProfile: (profile: Profile | null) => void
+    profile: User | null,
+    setProfile: (profile: User | null) => void
 }
 
 export const useProfileStore = create<ProfileState>()((set) => ({

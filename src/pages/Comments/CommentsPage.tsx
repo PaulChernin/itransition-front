@@ -23,7 +23,7 @@ const CommentsPage = () => {
     }, [reviewId])
 
     const send = async (text: string) => {
-        await createComment(reviewId, text, profile!.userId)
+        await createComment(reviewId, text, profile!.id)
         loadComments(reviewId)
     }
 
