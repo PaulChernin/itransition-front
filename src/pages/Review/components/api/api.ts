@@ -1,11 +1,15 @@
 import fetch from "../../../../api/fetch"
 
+type GetLikeResponse = {
+    userLike: boolean
+}
+
 export const getLike = async (reviewId: number, userId: number) => {
-    const response = await fetch('/like/get', {
+    const response: GetLikeResponse = await fetch('/like/get', {
         userId: userId,
         reviewId: reviewId
     })
-    return response.userLike as boolean // TODO: убрать as
+    return response.userLike
 }
 
 export const addLike = async (reviewId: number, userId: number) => {
@@ -15,9 +19,13 @@ export const addLike = async (reviewId: number, userId: number) => {
     })
 }
 
+type GetLikeCountResponse = {
+    count: number
+}
+
 export const getLikeCount = async (reviewId: number) => {
-    const response = await fetch('/like/get/count', {
+    const response: GetLikeCountResponse = await fetch('/like/get/count', {
         reviewId: reviewId
     })
-    return response.count as number
+    return response.count
 }
