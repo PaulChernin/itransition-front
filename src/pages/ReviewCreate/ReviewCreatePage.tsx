@@ -2,10 +2,10 @@ import { createReview } from "./api/api"
 // import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { useNumberParam } from "../../hooks/useNumberParam"
+import { ReviewFormData } from "@/types/ReviewFormData"
 import ReviewForm from "@/components/ReviewForm/ReviewForm"
-import { Review } from "@/components/ReviewForm/types/review"
 
-const defaultReview: Review = {
+const defaultReview: ReviewFormData = {
     productCategory: 'book',
     productName: '',
     title: '',
@@ -20,7 +20,7 @@ const ReviewCreatePage = () => {
     const userId = useNumberParam('userId')!
     const navigate = useNavigate()
 
-    const publish = async (review: Review) => {
+    const publish = async (review: ReviewFormData) => {
         const id = await createReview(review, userId)
         navigate('/review/' + id)
     }

@@ -35,7 +35,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 justify='space-between'
                 alignItems='center'
                 wrap='wrap'
-
             >
                 <Text>{categoryName}: {product.name}</Text>
                 <Rating

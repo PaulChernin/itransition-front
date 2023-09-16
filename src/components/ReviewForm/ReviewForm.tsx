@@ -1,5 +1,4 @@
 import { Button, Input, VStack } from "@chakra-ui/react"
-import { Review } from "./types/review"
 import { useTranslation } from "react-i18next"
 import ImageUploader from "../ImageUploader/ImageUploader"
 import TagInput from "./TagInput"
@@ -9,10 +8,11 @@ import FormElement from "../../ui/FormElement"
 import { ValidationError, array, number, object, string } from "yup"
 import { SimpleMdeReact } from "react-simplemde-editor"
 import CategorySelect from "../CategorySelect/CategorySelect"
+import { ReviewFormData } from "@/types/ReviewFormData"
 
 type ReviewFormProps = {
-    defaultReview: Review,
-    submit: (review: Review) => void
+    defaultReview: ReviewFormData,
+    submit: (review: ReviewFormData) => void
 }
 
 const reviewSchema = object({
