@@ -2,15 +2,9 @@ import { ReviewFormData } from "@/types/ReviewFormData"
 import fetch from "../../../api/fetch"
 
 export const updateReview = async (review: ReviewFormData, id: number) => {
-    await fetch('/review/update', { // TODO
+    await fetch('/review/update', {
         id: id,
-        category: review.productCategory,
-        productName: review.productName,
-        title: review.title,
-        text: review.text,
-        authorsScore: review.authorScore,
-        imageUrl: review.imageUrl,
-        tags: review.tags
+        review: review
     })
 }
 
@@ -19,7 +13,7 @@ export const getReview = async (id: number) => {
         id: id
     })
     return {
-        productCategory: response.product.categoryName,
+        productCategory: response.product.categoryName, // TODO:
         productName: response.product.name,
         title: response.title,
         text: response.text,
