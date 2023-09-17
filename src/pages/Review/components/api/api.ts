@@ -29,3 +29,10 @@ export const getLikeCount = async (reviewId: number) => {
     })
     return response.count
 }
+
+export const getLikeCountByUser = async (userId: number) => {
+    const response: GetLikeCountResponse = await fetch('/like/get/count/byUser', {
+        userId: userId
+    })
+    return response.count
+}
