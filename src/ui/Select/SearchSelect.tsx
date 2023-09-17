@@ -23,7 +23,7 @@ const SearchSelect = <T extends number | string>({ input, onInput, options, onSe
                 <Input
                     value={input}
                     onChange={e => onInput(e.target.value)}
-                    width={'200px'} // TODO: вынести в prop
+                    width={'200px'}
                     onFocus={onOpen}
                     onBlur={onClose}
                 />
@@ -31,7 +31,7 @@ const SearchSelect = <T extends number | string>({ input, onInput, options, onSe
             <PopoverContent
                 width={'200px'}
             >
-                <PopoverBody>
+                <PopoverBody padding={0}>
                     <SelectOptionsList
                         options={options}
                         select={onSelect}

@@ -15,6 +15,7 @@ const SelectOptionsList = <T extends number | string>({ options, select }: Selec
                 <Box
                     key={option.value}
                     onClick={() => select(option)}
+                    padding={2}
                     width='100%'
                     _hover={{ bgColor: hoverBg }}
                     cursor='pointer'
