@@ -4,11 +4,12 @@ import { Outlet } from "react-router-dom"
 
 const Layout = () => {
     return <>
+        <Header/>
         <Container
             maxWidth='container.md'
             marginBottom={10}
         >
-            <Header/>
+            
             <Outlet/>
         </Container>
     </>

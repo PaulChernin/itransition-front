@@ -1,4 +1,4 @@
-import { Box, Flex, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, Flex } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import Menu from "./Menu"
 import { useTranslation } from "react-i18next"
@@ -7,21 +7,28 @@ const Header = () => {
     const { t } = useTranslation()
 
     return <>
-        <Flex
-            as='header'
+        <Box
             mb={4}
-            py={3}
-            justifyContent='space-between'
-            alignItems='center'
-            borderBottom={2}
-            borderStyle='solid'
-            borderColor={useColorModeValue('gray.200', 'gray.800')}
+            boxShadow='sm'
+            position='sticky'
+            top={0}
+            bgColor='var(--chakra-colors-chakra-body-bg)'
+            zIndex={5}
         >
-            <Link to='/feed/best'>
-                <Box fontSize='lg' fontWeight='bold'>{t('all-reviews')}</Box>
-            </Link>
-            <Menu/>
-        </Flex>
+            <Container maxWidth='container.md'>
+                <Flex
+                    as='header'
+                    justifyContent='space-between'
+                    alignItems='center'
+                    py={3}
+                >
+                    <Link to='/feed/best'>
+                        <Box fontSize='lg' fontWeight='bold'>{t('all-reviews')}</Box>
+                    </Link>
+                    <Menu/>
+                </Flex>
+            </Container>
+        </Box>
     </>
 }
 

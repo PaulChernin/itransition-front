@@ -1,9 +1,10 @@
-import { Button, Drawer, DrawerContent, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import { Button, Drawer, DrawerContent, DrawerOverlay, Icon, useDisclosure } from "@chakra-ui/react"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeModeSwitcher from "./ThemeModeSwitcher"
 import LoginButton from "./LoginButton"
 import { useNavigate } from "react-router-dom"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
+import { AiOutlineMenu } from "react-icons/ai"
 
 const Menu = () => {
     const navigate = useNavigate()
@@ -11,7 +12,7 @@ const Menu = () => {
     const profile = useProfileStore(state => state.profile)
 
     return <>
-        <Button onClick={onOpen}>Menu</Button>
+        <Button onClick={onOpen}><Icon as={AiOutlineMenu} /></Button>
         <Drawer
             isOpen={isOpen}
             onClose={onClose}
