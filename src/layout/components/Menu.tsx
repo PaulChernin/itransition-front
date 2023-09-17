@@ -12,7 +12,9 @@ const Menu = () => {
     const profile = useProfileStore(state => state.profile)
 
     return <>
-        <Button onClick={onOpen}><Icon as={AiOutlineMenu} /></Button>
+        <Button onClick={onOpen}>
+            <Icon as={AiOutlineMenu} />
+        </Button>
         <Drawer
             isOpen={isOpen}
             onClose={onClose}

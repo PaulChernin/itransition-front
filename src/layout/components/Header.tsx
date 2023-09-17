@@ -1,4 +1,4 @@
-import { Box, Container, Flex } from "@chakra-ui/react"
+import { Box, Button, Container, Flex } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import Menu from "./Menu"
 import { useTranslation } from "react-i18next"
@@ -23,7 +23,8 @@ const Header = () => {
                     py={3}
                 >
                     <Link to='/feed/best'>
-                        <Box fontSize='lg' fontWeight='bold'>{t('all-reviews')}</Box>
+                        <Button colorScheme='blue'>{t('all-reviews')}</Button>
+                        {/* <Box fontSize='lg' fontWeight='bold'>{t('all-reviews')}</Box> */}
                     </Link>
                     <Menu/>
                 </Flex>

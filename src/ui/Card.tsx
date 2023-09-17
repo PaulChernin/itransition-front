@@ -11,8 +11,7 @@ const Card = ({ children }: CardProps) => {
             as='article'
             w='100%'
             boxShadow='base'
-            paddingX={4}
-            paddingY={5}
+            padding={6}
         >
             { children }
         </Box>
