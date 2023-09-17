@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next"
 import { Flex } from "@chakra-ui/react"
 import languages from "../../i18n/languages"
 import Select from "../../ui/Select/Select"
+import { changeLanguage } from "@/i18n/i18n"
 
 const LanguageSwitcher = () => {
     const { t, i18n } = useTranslation()
@@ -22,7 +23,7 @@ const LanguageSwitcher = () => {
             <Select
                 options={options}
                 value={i18n.resolvedLanguage}
-                setValue={value => value && i18n.changeLanguage(value)}
+                setValue={value => value && changeLanguage(value)}
             />
         </Flex>
     </>

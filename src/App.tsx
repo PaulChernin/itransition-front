@@ -2,7 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 import theme from "./theme/theme"
 import { RouterProvider } from "react-router-dom"
 import router from "./router/router"
-import './i18n/config.ts'
+import './i18n/i18n.ts'
 import "easymde/dist/easymde.min.css"
 
 const App = () => {
