@@ -36,7 +36,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 alignItems='center'
                 wrap='wrap'
             >
-                <Text>{categoryName}: {product.name}</Text>
+                <Text fontWeight='semibold' fontSize='lg'>
+                    {categoryName}: {product.name}
+                </Text>
                 <Rating
                     value={averageRating}
                     setValue={changeRating}

@@ -20,7 +20,7 @@ const ReviewsTable = ({ reviews, remove }: ReviewsTableProps) => {
     }
 
     return <>
-        <TableContainer>
+        <TableContainer width='100%'>
             <Table size='sm'>
                 <Tbody>
                     {reviews.map(review =>

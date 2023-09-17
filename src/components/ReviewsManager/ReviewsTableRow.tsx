@@ -15,7 +15,7 @@ const ReviewsTableRow = ({ review, open, edit, remove }: ReviewsTableRowProps) =
 
     return <>
         <Tr>
-            <Td>{review.title}</Td>
+            <Td width='99%'>{review.title}</Td>
             <Td>
                 <Button onClick={open}>{t('open')}</Button>
             </Td>

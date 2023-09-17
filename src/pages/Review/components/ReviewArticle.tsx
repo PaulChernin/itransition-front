@@ -18,13 +18,13 @@ const ReviewArticle = ({ review }: ReviewArticleProps) => {
 
     return <>
         <VStack spacing={4} align='left'>
-            <Heading as='h1' size='xl'>
+            <Heading as='h1' size='xl' marginY={6}>
                 {review.title}
             </Heading>
             <AuthorBlock user={review.author} />
             <ProductCard product={review.product} />
-            <ArticleImage url={review.imageUrl} />
             <ReactMarkdown children={review.text} />
+            <ArticleImage url={review.imageUrl} />
             <ScoreText score={review.authorsScore} />
             <TagsList tags={review.tags} />
             <ReviewArticleFooter review={review} />

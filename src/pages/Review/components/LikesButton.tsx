@@ -44,6 +44,7 @@ const LikesButton = ({ review }: LikesButtonProps) => {
         <Button
             onClick={handleAddLike}
             leftIcon={isLiked ? <AiFillHeart/> : <AiOutlineHeart/> }
+            colorScheme='blue'
         >
             {count}
         </Button>

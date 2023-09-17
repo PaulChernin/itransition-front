@@ -37,7 +37,6 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
             })
             submit(result)
         } catch (e) {
-            console.log(e)
             if (e instanceof ValidationError) {
                 setErrors(e.inner.map(error => error.path!))
             }
@@ -104,7 +103,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                     setUrl={value => setReview({...review, imageUrl: value})}
                 />
             </FormElement>
-            <Button type='submit' onClick={handleSubmit}>
+            <Button colorScheme='blue' type='submit' onClick={handleSubmit}>
                 Submit
             </Button>
         </VStack>
