@@ -2,6 +2,7 @@ import { Button, HStack,  Tag, TagCloseButton, TagLabel, Text, VStack } from "@c
 import {  useEffect, useState } from "react"
 import SearchSelect from "../../ui/Select/SearchSelect"
 import { getTagsByPrefix } from "./api/api"
+import { useTranslation } from "react-i18next"
 
 type TagInputProps = {
     tags: Array<string>,
@@ -10,6 +11,7 @@ type TagInputProps = {
 
 // TODO: разделить на компоненты
 const TagInput = ({ tags, setTags }: TagInputProps) => {
+    const { t } = useTranslation()
     const [input, setInput] = useState('')
     const [options, setOptions] = useState<Array<string>>([])
 
@@ -49,7 +51,7 @@ const TagInput = ({ tags, setTags }: TagInputProps) => {
                     </Tag>
                 )}
                 {tags.length ||
-                    <Text>No tags selected</Text>
+                    <Text>{t('no-tags-selected')}</Text>
                 }
             </HStack>
             <HStack spacing={3}>
@@ -60,7 +62,7 @@ const TagInput = ({ tags, setTags }: TagInputProps) => {
                     onSelect={option => setInput(option.label)}
                 />
                 <Button onClick={() => add(input)}>
-                    Add
+                    {t('add')}
                 </Button>
             </HStack>
         </VStack>

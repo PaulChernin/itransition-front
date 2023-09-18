@@ -33,7 +33,7 @@ const PreviewsListItem = ({ preview }: PreviewsListItemProps) => {
                     <TagsList tags={preview.tags} />
                 }
                 <Button colorScheme='blue' onClick={openReview}>
-                    {t('read')}
+                    {t('feed.read')}
                 </Button>
             </VStack>
         </Card>

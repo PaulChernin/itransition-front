@@ -1,25 +1,54 @@
 {
-    "all-reviews": "Все обзоры",
-    "language": "Язык",
-    "dark-mode": "Темный режим",
+    "header": {
+        "all-reviews": "Все обзоры"
+    },
+    "menu": {
+        "users-list": "Список пользователей",
+        "my-reviews": "Мои обзоры",
+        "language": "Язык",
+        "log-out": "Выйти",
+        "log-in-with-vk": "Войти с помощью VK",
+        "dark-mode": "Темная тема"
+    },
     "page-not-found": "Страница не найдена",
+    "feed": {
+        "best": "Лучшее",
+        "new": "Новое",
+        "tags": "Теги",
+        "read": "Читать"
+    },
     "categories": {
         "book": "Книга",
         "game": "Игра",
         "movie": "Фильм"
     },
-    "read": "Читать",
-    "title": "Заголовок",
-    "text": "Текст",
-    "score": "Оценка",
-    "send": "Отправить",
-    "best": "Лучшее",
-    "new": "Новое",
-    "tags": "Теги",
-    "open": "Открыть",
-    "edit": "Изменить",
-    "delete": "Удалить",
-    "comments": "Комментарии",
-    "publish": "Опубликовать",
-    "name": "Название"
+    "review": {
+        "author": "Автор",
+        "comments": "Комментарии"
+    },
+    "reviews-manager": {
+        "new-review": "Новый обзор",
+        "no-reviews": "Пока нет обзоров",
+        "category": "Категория",
+        "sort-by": "Сортировать по",
+        "sort": {
+            "date": "Дате",
+            "name": "Названию"
+        },
+        "open": "Открыть"
+    },
+    "review-form": {
+        "product-category": "Категория",
+        "product-name": "Название",
+        "title": "Заголовок обзора",
+        "text": "Текст",
+        "author-score": "Оценка от 1 до 10",
+        "tags": "Теги",
+        "no-tags-selected": "Теги не выбраны",
+        "add": "Добавить",
+        "image": "Изображение (не обязательно)",
+        "image-uploaded": "Изображение загружено",
+        "drag-drop-or-click": "Перетащите файл или нажмите здесь",
+        "submit": "Сохранить"
+    }
 }

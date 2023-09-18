@@ -1,25 +1,53 @@
 {
-    "all-reviews": "All reviews",
-    "language": "Language",
-    "dark-mode": "Dark mode",
+    "header": {
+        "all-reviews": "All reviews"
+    },
+    "menu": {
+        "users-list": "Users list",
+        "my-reviews": "My reviews",
+        "language": "Language",
+        "log-out": "Log out",
+        "log-in-with-vk": "Log in with VK",
+        "dark-mode": "Dark mode"
+    },
     "page-not-found": "Page not found",
+    "feed": {
+        "best": "Best",
+        "new": "New",
+        "tags": "Tags",
+        "read": "Read"
+    },
     "categories": {
         "book": "Book",
         "game": "Game",
         "movie": "Movie"
     },
-    "read": "Read",
-    "title": "Title",
-    "text": "Text",
-    "score": "Score",
-    "send": "Send",
-    "best": "Best",
-    "new": "New",
-    "tags": "Tags",
-    "open": "Open",
-    "edit": "Edit",
-    "delete": "Delete",
-    "comments": "Comments",
-    "publish": "Publish",
-    "name": "Name"
+    "review": {
+        "author": "Author",
+        "comments": "Comments"
+    },
+    "reviews-manager": {
+        "new-review": "New review",
+        "no-reviews": "No reviews yet",
+        "category": "Category",
+        "sort-by": "Sort by",
+        "sort": {
+            "date": "Date",
+            "name": "Name"
+        }
+    },
+    "review-form": {
+        "product-category": "Category",
+        "product-name": "Name",
+        "title": "Title of the review",
+        "text": "Text",
+        "author-score": "Score from 1 to 10",
+        "tags": "Tags",
+        "no-tags-selected": "No tags selected",
+        "add": "Add",
+        "image": "Image (optional)",
+        "image-uploaded": "Image uploaded",
+        "drag-drop-or-click": "Drag'n'drop or click to select file",
+        "submit": "Save"
+    }
 }

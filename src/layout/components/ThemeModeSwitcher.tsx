@@ -11,7 +11,7 @@ const ThemeModeSwitcher = () => {
             justifyContent='space-between'
             direction='row'
         >
-            <div>{t('dark-mode')}:</div>
+            <div>{t('menu.dark-mode')}:</div>
             <Switch
                 isChecked={colorMode === 'dark'}
                 onChange={toggleColorMode}

@@ -20,7 +20,7 @@ const ReviewArticleFooter = ({ review }: ReviewArticleFooterProps) => {
         <Flex alignItems='center' gap={5}>
             <Likes review={review}/>
             <Button onClick={openComments}>
-                {t('comments')}
+                {t('review.comments')}
             </Button>
         </Flex>
     </>

@@ -5,8 +5,10 @@ import LoginButton from "./LoginButton"
 import { useNavigate } from "react-router-dom"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
 import { AiOutlineMenu } from "react-icons/ai"
+import { useTranslation } from "react-i18next"
 
 const Menu = () => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const { isOpen, onOpen, onClose } = useDisclosure()
     const profile = useProfileStore(state => state.profile)
@@ -30,12 +32,12 @@ const Menu = () => {
                 <LoginButton/>
                 {profile?.isAdmin && // TODO: вынести в компонент
                     <Button onClick={() => navigate('/admin')}>
-                        Users list
+                        {t('menu.users-list')}
                     </Button>
                 }
                 {profile && // TODO:
                     <Button onClick={() => navigate('my-reviews')}>
-                        My reviews
+                        {t('menu.my-reviews')}
                     </Button>
                 }
             </DrawerContent>

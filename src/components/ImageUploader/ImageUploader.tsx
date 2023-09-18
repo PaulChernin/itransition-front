@@ -1,6 +1,7 @@
 import uploadImage from "./api/api"
 import Dropzone from "react-dropzone"
 import { Button } from "@chakra-ui/react"
+import { useTranslation } from "react-i18next"
 
 type ImageUploaderProps = {
     url: string | null,
@@ -8,6 +9,8 @@ type ImageUploaderProps = {
 }
 
 const ImageUploader = ({ url, setUrl }: ImageUploaderProps) => {
+    const { t } = useTranslation()
+    
     const handleChange = async (file: File) => {
         const url = await uploadImage(file)
         setUrl(url)
@@ -24,9 +27,9 @@ const ImageUploader = ({ url, setUrl }: ImageUploaderProps) => {
                     <input {...getInputProps()} />
                     {url
                         ?
-                        <p>Image uploaded</p>
+                        <p>{t('image-uploaded')}</p>
                         :
-                        <p>Drag 'n' drop some files here, or click to select files</p>
+                        <p>{t('drag-drop-or-click')}</p>
                     }
                 </Button>
             )}

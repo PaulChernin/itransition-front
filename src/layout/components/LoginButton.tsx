@@ -1,8 +1,10 @@
-import { Button } from "@chakra-ui/react"
+import { Button, VStack } from "@chakra-ui/react"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
 import { redirectAuth } from "../../auth/vkAuth"
+import { useTranslation } from "react-i18next"
 
 const LoginButton = () => {
+    const { t } = useTranslation()
     const { profile, setProfile } = useProfileStore()
     
     const login = async () => {
@@ -17,12 +19,14 @@ const LoginButton = () => {
         {profile
             ?
             <Button onClick={logout}>
-                Log out
+                {t('menu.log-out')}
             </Button>
             :
-            <Button onClick={login}>
-                Log in with VK
-            </Button>
+            <VStack gap={3}>
+                <Button onClick={login}>
+                    {t('menu.log-in-with-vk')}
+                </Button>
+            </VStack>
         }
     </>
 }

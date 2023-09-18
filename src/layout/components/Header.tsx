@@ -23,8 +23,7 @@ const Header = () => {
                     py={3}
                 >
                     <Link to='/feed/best'>
-                        <Button colorScheme='blue'>{t('all-reviews')}</Button>
-                        {/* <Box fontSize='lg' fontWeight='bold'>{t('all-reviews')}</Box> */}
+                        <Button colorScheme='blue'>{t('header.all-reviews')}</Button>
                     </Link>
                     <Menu/>
                 </Flex>

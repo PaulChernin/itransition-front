@@ -45,14 +45,14 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
     
     return <>
         <VStack spacing={4} align='flex-start'>
-            <FormElement label='What is your review about?'>
+            <FormElement label={t('review-form.product-category')}>
                 <CategorySelect
                     category={review.productCategory}
                     setCategory={value => setReview({...review, productCategory: value})}
                 />
             </FormElement>
             <FormElement
-                label='Provide its name:'
+                label={t('review-form.product-name')}
                 isInvalid={errors.includes('productName')}
                 errorMessage='Product name is required'
             >
@@ -62,7 +62,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                 />
             </FormElement>
             <FormElement
-                label={t('Review\'s title:')}
+                label={t('review-form.title')}
                 isInvalid={errors.includes('title')}
                 errorMessage='Title is required'
             >
@@ -72,7 +72,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                 />
             </FormElement>
             <FormElement
-                label={t('text')}
+                label={t('review-form.text')}
                 isInvalid={errors.includes('text')}
                 errorMessage='Text is required'
             >
@@ -82,7 +82,7 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                 />
             </FormElement>
             <FormElement
-                label='Total score from 1 to 10:'
+                label={t('review-form.author-score')}
                 isInvalid={errors.includes('authorScore')}
                 errorMessage='Provide score from 1 to 10'
             >
@@ -91,20 +91,20 @@ const ReviewForm = ({ defaultReview, submit }: ReviewFormProps) => {
                     setValue={value => setReview({...review, authorScore: value})}
                 />
             </FormElement>
-            <FormElement label='Tags:'>
+            <FormElement label={t('review-form.tags')}>
                 <TagInput
                     tags={review.tags}
                     setTags={value => setReview({...review, tags: value})}
                 />
             </FormElement>
-            <FormElement label='Image (optional):'>
+            <FormElement label={t('review-form.image')}>
                 <ImageUploader
                     url={review.imageUrl}
                     setUrl={value => setReview({...review, imageUrl: value})}
                 />
             </FormElement>
             <Button colorScheme='blue' type='submit' onClick={handleSubmit}>
-                Submit
+                {t('review-form.submit')}
             </Button>
         </VStack>
     </>

@@ -14,7 +14,7 @@ const SortSelect = ({ sort, setSort }: SortSelectProps) => {
 
     const options = categories.map(category => {
         return {
-            label: t('categories.' + category),
+            label: t('reviews-manager.sort.' + category),
             value: category
         }
     })

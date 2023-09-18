@@ -6,6 +6,7 @@ import { getReviews, removeReview } from "./api/api"
 import { useNavigate } from "react-router-dom"
 import { Button, Text, VStack } from "@chakra-ui/react"
 import { Review } from "@/types/Review"
+import { useTranslation } from "react-i18next"
 
 type ReviewsProps = {
     userId: number
@@ -17,6 +18,7 @@ const defaultControls: TableControls = {
 }
 
 const ReviewsManager = ({ userId }: ReviewsProps) => {
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const [controls, setControls] = useState<TableControls>(defaultControls)
     const [reviews, setReviews] = useState<Array<Review>>([])
@@ -41,7 +43,7 @@ const ReviewsManager = ({ userId }: ReviewsProps) => {
     return <>
         <VStack spacing={4} alignItems='flex-start'>
             <Button onClick={openCreate}>
-                New review
+                {t('reviews-manager.new-review')}
             </Button>
             <ReviewsTableControls
                 controls={controls}
@@ -53,7 +55,7 @@ const ReviewsManager = ({ userId }: ReviewsProps) => {
                     remove={remove}
                 />
                 :
-                <Text>No reviews yet</Text>
+                <Text>{t('reviews-manager.no-reviews')}</Text>
             }
         </VStack>
     </>

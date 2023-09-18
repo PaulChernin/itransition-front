@@ -4,15 +4,15 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 const tabs = [ // в отдельный файл
     {
-        label: 'best',
+        label: 'feed.best',
         route: '/feed/best'
     },
     {
-        label: 'new',
+        label: 'feed.new',
         route: '/feed/latest'
     },
     {
-        label: 'tags',
+        label: 'feed.tags',
         route: '/feed/tags'
     }
 ]

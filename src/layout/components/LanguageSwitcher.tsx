@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
             justifyContent='space-between'
             direction='row'
         >
-            <div>{t('language')}:</div>
+            <div>{t('menu.language')}:</div>
             <Select
                 options={options}
                 value={i18n.resolvedLanguage}

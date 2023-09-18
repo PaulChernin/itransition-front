@@ -6,7 +6,7 @@ type CategorySelectProps = {
     setCategory: (value: string) => void
 }
 
-const categories = ['book', 'game', 'movie'] // TODO: вынести в отдельный файл
+const categories = ['book', 'game', 'movie']
 
 const CategorySelect = ({ category, setCategory }: CategorySelectProps) => {
     const { t } = useTranslation()
