@@ -10,11 +10,12 @@ import FeedLatestPage from "../pages/FeedLatest/FeedLatestPage"
 import CommentsPage from "../pages/Comments/CommentsPage"
 import Layout from "../layout/Layout"
 import FeedTagsPage from "../pages/FeedTags/FeedTagsPage"
-import NotFoundPage from "../pages/404/NotFoundPage"
+import NotFoundPage from "../pages/errors/NotFoundPage"
 import ProtectedRoutes from "./ProtectedRoutes"
 import MyReviewsPage from "../pages/MyReviews/MyReviewsPage"
 import UserReviewsPage from "../pages/UserReviews/UserReviewsPage"
 import ValidateParams from "./ValidateParams"
+import ErrorPage from "@/pages/errors/ErrorPage"
 
 export default [
     {
@@ -112,6 +113,10 @@ export default [
     {
         path: '/404',
         element: <NotFoundPage/>
+    },
+    {
+        path: '/500',
+        element: <ErrorPage/>
     },
     {
         path: '*',

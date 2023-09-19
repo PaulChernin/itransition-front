@@ -10,7 +10,10 @@
         "log-in-with-vk": "Log in with VK",
         "dark-mode": "Dark mode"
     },
-    "page-not-found": "Page not found",
+    "error": {
+        "page-not-found": "Page not found",
+        "error-occured": "Error :( Try again later"
+    },
     "feed": {
         "best": "Best",
         "new": "New",

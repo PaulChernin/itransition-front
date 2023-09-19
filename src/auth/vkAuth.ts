@@ -1,6 +1,7 @@
 import { Config, Connect} from '@vkontakte/superappkit'
 import axios from '../api/axios'
 import { User } from '@/types/User'
+import fetch from '@/api/fetch'
 
 Config.init({
   appId: 51736723
@@ -20,7 +21,7 @@ type ExchangeTokensResponse = {
 }
 
 const exchangeTokens = async (silent: string) => {
-  const response = await axios.post('/vk-auth', {
+  const response = await fetch('/vk-auth', {
     silentToken: silent
   })
   return response.data as ExchangeTokensResponse

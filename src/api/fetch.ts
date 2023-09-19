@@ -1,27 +1,13 @@
-import { AxiosError, isAxiosError } from "axios"
+import { isAxiosError } from "axios"
 import axios from "./axios"
 import router from "../router/router"
 
-const redirect404 = () => {
-    router.navigate('/404', { replace: true })
-}
-
-const handleAxiosError = (error: AxiosError) => {
-    switch (error.response?.status) {
-        case 404:
-            redirect404()
-            break
-        case 403:
-            redirect404()
-            break
-    }
-}
-
 const handleError = (error: unknown) => {
-    if (isAxiosError(error)) {
-        handleAxiosError(error)
+    if (isAxiosError(error) && (error.response?.status === 403 || error.response?.status === 404)) {
+        router.navigate('/404', { replace: true })
     } else {
-        throw error
+        console.log('error')
+        router.navigate('/500')
     }
 }
 
