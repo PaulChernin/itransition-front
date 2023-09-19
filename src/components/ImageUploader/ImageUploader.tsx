@@ -27,9 +27,9 @@ const ImageUploader = ({ url, setUrl }: ImageUploaderProps) => {
                     <input {...getInputProps()} />
                     {url
                         ?
-                        <p>{t('image-uploaded')}</p>
+                        <p>{t('review-form.image-uploaded')}</p>
                         :
-                        <p>{t('drag-drop-or-click')}</p>
+                        <p>{t('review-form.drag-drop-or-click')}</p>
                     }
                 </Button>
             )}
