@@ -21,10 +21,10 @@ type ExchangeTokensResponse = {
 }
 
 const exchangeTokens = async (silent: string) => {
-  const response = await fetch('/vk-auth', {
+  const response: ExchangeTokensResponse = await fetch('/vk-auth', {
     silentToken: silent
   })
-  return response.data as ExchangeTokensResponse
+  return response
 }
 
 export const handleSilentToken = async (silent: string) => {

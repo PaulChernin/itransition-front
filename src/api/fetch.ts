@@ -6,7 +6,6 @@ const handleError = (error: unknown) => {
     if (isAxiosError(error) && (error.response?.status === 403 || error.response?.status === 404)) {
         router.navigate('/404', { replace: true })
     } else {
-        console.log('error')
         router.navigate('/500')
     }
 }
