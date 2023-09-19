@@ -1,5 +1,4 @@
 import { Config, Connect} from '@vkontakte/superappkit'
-import axios from '../api/axios'
 import { User } from '@/types/User'
 import fetch from '@/api/fetch'
 
