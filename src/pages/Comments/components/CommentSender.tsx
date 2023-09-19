@@ -21,13 +21,13 @@ const CommentSender = ({ send }: CommentSenderProps) => {
             marginTop={6}
             alignItems='flex-start'
         >
-            <Text>Your comment:</Text>
+            <Text>{t('comments.your-comment')}:</Text>
             <Textarea
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
             <Button onClick={handleSend}>
-                {t('send')}
+                {t('comments.send')}
             </Button>
         </VStack>
     </>

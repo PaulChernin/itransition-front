@@ -6,8 +6,10 @@ import CommentSender from "./components/CommentSender"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
 import { Text } from "@chakra-ui/react"
 import { useNumberParam } from "@/hooks/useNumberParam"
+import { useTranslation } from "react-i18next"
 
 const CommentsPage = () => {
+    const { t } = useTranslation()
     const reviewId = useNumberParam('reviewId')!
     const [comments, setComments] = useState<Array<Comment>>([])
     const { profile } = useProfileStore()
@@ -34,7 +36,7 @@ const CommentsPage = () => {
             <CommentSender send={send} />
             :
             <Text marginTop={6}>
-                Log in to leave comments
+                {t('comments.login-to-comment')}
             </Text>
         }
     </>

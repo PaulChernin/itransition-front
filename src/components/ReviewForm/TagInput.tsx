@@ -51,7 +51,7 @@ const TagInput = ({ tags, setTags }: TagInputProps) => {
                     </Tag>
                 )}
                 {tags.length ||
-                    <Text>{t('no-tags-selected')}</Text>
+                    <Text>{t('review-form.no-tags-selected')}</Text>
                 }
             </HStack>
             <HStack spacing={3}>
@@ -62,7 +62,7 @@ const TagInput = ({ tags, setTags }: TagInputProps) => {
                     onSelect={option => setInput(option.label)}
                 />
                 <Button onClick={() => add(input)}>
-                    {t('add')}
+                    {t('review-form.add')}
                 </Button>
             </HStack>
         </VStack>

@@ -1,12 +1,15 @@
 import { Text, VStack } from "@chakra-ui/react"
 import CommentCard from "./CommentCard"
 import { Comment } from "./types/Comment"
+import { useTranslation } from "react-i18next"
 
 type CommentsListProps = {
     comments: Array<Comment>
 }
 
 const CommentsList = ({ comments }: CommentsListProps) => {
+    const { t } = useTranslation()
+
     return <>
         {comments.length
             ?
@@ -19,7 +22,7 @@ const CommentsList = ({ comments }: CommentsListProps) => {
                 )}
             </VStack>
             :
-            <Text>No comments yet</Text>
+            <Text>{t('comments.no-comments-yet')}</Text>
         }
     </>
 }

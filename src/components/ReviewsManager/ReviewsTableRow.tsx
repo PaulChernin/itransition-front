@@ -17,7 +17,7 @@ const ReviewsTableRow = ({ review, open, edit, remove }: ReviewsTableRowProps) =
         <Tr>
             <Td width='99%'>{review.title}</Td>
             <Td>
-                <Button onClick={open}>{t('open')}</Button>
+                <Button onClick={open}>{t('reviews-manager.open')}</Button>
             </Td>
             <Td>
                 <Button onClick={edit}><AiFillEdit/></Button>

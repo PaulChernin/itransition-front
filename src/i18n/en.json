@@ -34,7 +34,8 @@
         "sort": {
             "date": "Date",
             "name": "Name"
-        }
+        },
+        "open": "Open"
     },
     "review-form": {
         "product-category": "Category",
@@ -49,5 +50,11 @@
         "image-uploaded": "Image uploaded",
         "drag-drop-or-click": "Drag'n'drop or click to select file",
         "submit": "Save"
+    },
+    "comments": {
+        "your-comment": "Your comment",
+        "send": "Send",
+        "login-to-comment": "Log in to leave comments",
+        "no-comments-yet": "No comments yet"
     }
 }
