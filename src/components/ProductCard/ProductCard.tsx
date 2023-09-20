@@ -5,6 +5,7 @@ import { createRating, getAverageRating } from "./api/api"
 import { useEffect, useState } from "react"
 import { Flex, Text } from "@chakra-ui/react"
 import Rating from "./StarRatings"
+import { useProfileStore } from "@/hooks/profile/useProfileStore"
 
 type ProductCardProps = {
     product: Product
@@ -14,6 +15,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const {t} = useTranslation()
     const categoryName = t('categories.' + product.categoryName)
     const [averageRating, setAverageRating] = useState(0)
+    const profile = useProfileStore(state => state.profile)
 
     const loadAverage = async () => {
         setAverageRating(await getAverageRating(product.id))
@@ -42,6 +44,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 <Rating
                     value={averageRating}
                     setValue={changeRating}
+                    active={!!profile}
                 />
             </Flex>
         </CardContrast>
