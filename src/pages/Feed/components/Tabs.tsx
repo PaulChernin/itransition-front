@@ -2,7 +2,7 @@ import { Tabs as ChakraTabs, Tab, TabList } from "@chakra-ui/react"
 import { useTranslation } from "react-i18next"
 import { useLocation, useNavigate } from "react-router-dom"
 
-const tabs = [ // в отдельный файл
+const tabs = [
     {
         label: 'feed.best',
         route: '/feed/best'

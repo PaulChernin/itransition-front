@@ -6,7 +6,7 @@ type CreateReviewResponse = {
 }
 
 export const createReview = async (review: ReviewFormData, authorId: number) => {
-    const response: CreateReviewResponse = await fetch('/review/create', { // TODO
+    const response: CreateReviewResponse = await fetch('/review/create', {
         authorId: authorId,
         review: review
     })

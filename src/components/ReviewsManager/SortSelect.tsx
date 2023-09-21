@@ -6,9 +6,8 @@ type SortSelectProps = {
     setSort: (value: string) => void
 }
 
-const categories = ['date', 'name'] // TODO: в отдельный файл
+const categories = ['date', 'name']
 
-// TODO: переименовать в SortTypeSelect
 const SortSelect = ({ sort, setSort }: SortSelectProps) => {
     const { t } = useTranslation()
 

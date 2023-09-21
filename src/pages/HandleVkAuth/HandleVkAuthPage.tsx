@@ -10,7 +10,7 @@ const VkAuthHandlePage = () => {
     const { setProfile } = useProfileStore()
 
     useEffect(() => {
-        handleSilentToken(searchParams.get('payload') || '') // TODO
+        handleSilentToken(searchParams.get('payload') || '')
             .then((profile) => {
                 if (profile) {
                     setProfile(profile)

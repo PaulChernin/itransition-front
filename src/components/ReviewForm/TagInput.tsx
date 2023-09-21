@@ -9,7 +9,6 @@ type TagInputProps = {
     setTags: (value: Array<string>) => void
 }
 
-// TODO: разделить на компоненты
 const TagInput = ({ tags, setTags }: TagInputProps) => {
     const { t } = useTranslation()
     const [input, setInput] = useState('')

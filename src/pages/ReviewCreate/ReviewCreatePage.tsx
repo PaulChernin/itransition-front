@@ -1,5 +1,4 @@
 import { createReview } from "./api/api"
-// import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import { useNumberParam } from "../../hooks/useNumberParam"
 import { ReviewFormData } from "@/types/ReviewFormData"
@@ -16,7 +15,6 @@ const defaultReview: ReviewFormData = {
 }
 
 const ReviewCreatePage = () => {
-    // const { t } = useTranslation()
     const userId = useNumberParam('userId')!
     const navigate = useNavigate()
 

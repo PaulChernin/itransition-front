@@ -1,6 +1,6 @@
 import { User } from "@/types/User"
 
-export type Comment = { // перенести файл
+export type Comment = {
     id: number,
     user: User,
     text: string

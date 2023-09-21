@@ -11,7 +11,7 @@ const categories = ['book', 'game', 'movie']
 const CategorySelect = ({ category, setCategory }: CategorySelectProps) => {
     const { t } = useTranslation()
 
-    const options = categories.map(category => { // TODO: добавить перевод в сам select
+    const options = categories.map(category => {
         return {
             label: t('categories.' + category),
             value: category
