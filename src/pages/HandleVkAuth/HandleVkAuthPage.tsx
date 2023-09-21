@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { handleSilentToken } from "../../auth/vkAuth"
 import { useProfileStore } from "../../hooks/profile/useProfileStore"
+import { Center, Spinner } from "@chakra-ui/react"
 
 const VkAuthHandlePage = () => {
     const [searchParams] = useSearchParams()
@@ -20,7 +21,7 @@ const VkAuthHandlePage = () => {
 
 
     return <>
-        <div>Loading...</div>
+        <Center><Spinner/></Center>
     </>
 }
 
