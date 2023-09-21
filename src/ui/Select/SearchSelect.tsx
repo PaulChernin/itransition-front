@@ -28,16 +28,16 @@ const SearchSelect = <T extends number | string>({ input, onInput, options, onSe
                     onBlur={onClose}
                 />
             </PopoverTrigger>
-            <PopoverContent
-                width={'200px'}
-            >
-                <PopoverBody padding={0}>
-                    <SelectOptionsList
-                        options={options}
-                        select={onSelect}
-                    />
-                </PopoverBody>
-            </PopoverContent>
+            {options.length > 0 &&
+                <PopoverContent width={'200px'}>
+                        <PopoverBody padding={0}>
+                            <SelectOptionsList
+                                options={options}
+                                select={onSelect}
+                            />
+                        </PopoverBody>
+                </PopoverContent>
+            }
         </Popover>
     </>
 }
